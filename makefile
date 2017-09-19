@@ -1,24 +1,27 @@
-INC_DIR = include
+INC_DIR = HelloShape
 
-all: exp
+all: hw1
 
-exp: mainExp.o Shapes.o Media.o
+hw1: Source.o Sort.o Shapes.o Media.o
+
 ifeq (${OS}, Windows_NT)
-	g++ -o exp mainExp.o Shapes.o Media.o -lgtest
+	g++ -o hw1 Source.o Sort.o Shapes.o Media.o -lgtest
 else
-	g++ -o exp mainExp.o Shapes.o Media.o -lgtest -lpthread
+	g++ -o hw1 Source.o Sort.o Shapes.o Media.o -lgtest -lpthread
 endif
-	
-mainExp.o: mainExp.cpp exp.h
-	g++ -std=gnu++0x -c mainExp.cpp
-Shapes.o: $(INC_DIR)/Shapes.h Shapes.cpp
-	g++ -std=gnu++0x -c Shapes.cpp
-Media.o: $(INC_DIR)/Media.h Media.cpp
-	g++ -std=gnu++0x -c Media.cpp
+
+Source.o: $(INC_DIR)/Source.cpp $(INC_DIR)/utSort.h
+	g++ -std=gnu++0x -c $(INC_DIR)/Source.cpp
+Sort.o: $(INC_DIR)/Sort.cpp $(INC_DIR)/Sort.h
+	g++ -std=gnu++0x -c $(INC_DIR)/Sort.cpp
+Shapes.o: $(INC_DIR)/Shapes.cpp $(INC_DIR)/Shapes.h
+	g++ -std=gnu++0x -c $(INC_DIR)/Shapes.cpp
+Media.o: $(INC_DIR)/Media.cpp $(INC_DIR)/Media.h
+	g++ -std=gnu++0x -c $(INC_DIR)/Media.cpp
 
 clean:	
 ifeq (${OS}, Windows_NT)
 	del *.o *.exe
 else
-	rm -f *.o exp
+	rm -f *.o hw1
 endif

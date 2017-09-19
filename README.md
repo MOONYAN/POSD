@@ -1,3 +1,0 @@
-# POSD
-homework
-God like
