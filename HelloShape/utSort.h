@@ -83,10 +83,10 @@ TEST(Sort, sortByDecreasingArea) {
 
 TEST(Sort, sortByIncreasingCompactness) {
 	list<Shape*> shapes;
-	Circle c(0, 0, 1);//1
-	Rectangle r(0, 0, 1, 2);//0.698
+	Circle c(0, 0, 1);//0.5
+	Rectangle r(0, 0, 1, 2);//0.33
 	vertex t1 = { 0,0 }, t2 = { 1,1 }, t3 = { 2,0 };
-	Triangle t(t1, t2, t3);//0.539
+	Triangle t(t1, t2, t3);//0.207
 	shapes.push_back(&c);
 	shapes.push_back(&r);
 	shapes.push_back(&t);

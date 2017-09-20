@@ -27,7 +27,7 @@ void Sort::sortByDecreasingArea(std::list<Shape*>* shapeList)
 void Sort::sortByIncreasingCompactness(std::list<Shape*>* shapeList)
 {
 	auto compactness = [](Shape* shape) {
-		return 4 * M_PI*shape->area() / (pow(shape->perimeter(), 2));
+		return shape->area() / shape->perimeter();
 	};
 
 	auto increasingOrder = [&](Shape* a, Shape* b) {return (compactness(a)) < (compactness(b)); };
