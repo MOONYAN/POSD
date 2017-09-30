@@ -1,5 +1,6 @@
 #pragma once
 #include "Number.h"
+#include "Atom.h"
 
 //test Number.value()
 TEST(Number, ctor) {
@@ -30,12 +31,14 @@ TEST(Number, matchFailureDiffValue) {
 	ASSERT_FALSE(number.match(&other));
 }
 
-////?- 25=tom.
-////false.
-//TEST(Number, matchFailureDiffConstant) {
-//
-//}
-//
+//?- 25=tom.
+//false.
+TEST(Number, matchFailureDiffConstant) {
+	Number number(25);
+	Atom tom("tom");
+	ASSERT_FALSE(number.match(&tom));
+}
+
 ////?- 25=X.
 ////true.
 //TEST(Number, matchSuccessToVar) {

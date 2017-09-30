@@ -121,10 +121,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Atom.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Atom.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Term.h" />
