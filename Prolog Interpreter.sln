@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Prolog Interpreter", "Prolog Interpreter\Prolog Interpreter.vcxproj", "{66916AE6-8518-4DBA-9A11-2EE63F89EEE1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoogleTest", "GoogleTest\GoogleTest.vcxproj", "{B683CCBB-DC4A-4CE1-A120-01645B5FAE1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66916AE6-8518-4DBA-9A11-2EE63F89EEE1}.Debug|x64.ActiveCfg = Debug|x64
+		{66916AE6-8518-4DBA-9A11-2EE63F89EEE1}.Debug|x64.Build.0 = Debug|x64
+		{66916AE6-8518-4DBA-9A11-2EE63F89EEE1}.Debug|x86.ActiveCfg = Debug|Win32
+		{66916AE6-8518-4DBA-9A11-2EE63F89EEE1}.Debug|x86.Build.0 = Debug|Win32
+		{66916AE6-8518-4DBA-9A11-2EE63F89EEE1}.Release|x64.ActiveCfg = Release|x64
+		{66916AE6-8518-4DBA-9A11-2EE63F89EEE1}.Release|x64.Build.0 = Release|x64
+		{66916AE6-8518-4DBA-9A11-2EE63F89EEE1}.Release|x86.ActiveCfg = Release|Win32
+		{66916AE6-8518-4DBA-9A11-2EE63F89EEE1}.Release|x86.Build.0 = Release|Win32
+		{B683CCBB-DC4A-4CE1-A120-01645B5FAE1F}.Debug|x64.ActiveCfg = Debug|x64
+		{B683CCBB-DC4A-4CE1-A120-01645B5FAE1F}.Debug|x64.Build.0 = Debug|x64
+		{B683CCBB-DC4A-4CE1-A120-01645B5FAE1F}.Debug|x86.ActiveCfg = Debug|Win32
+		{B683CCBB-DC4A-4CE1-A120-01645B5FAE1F}.Debug|x86.Build.0 = Debug|Win32
+		{B683CCBB-DC4A-4CE1-A120-01645B5FAE1F}.Release|x64.ActiveCfg = Release|x64
+		{B683CCBB-DC4A-4CE1-A120-01645B5FAE1F}.Release|x64.Build.0 = Release|x64
+		{B683CCBB-DC4A-4CE1-A120-01645B5FAE1F}.Release|x86.ActiveCfg = Release|Win32
+		{B683CCBB-DC4A-4CE1-A120-01645B5FAE1F}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94F57CBF-EB78-435B-A7A9-73A040461BA1}
+	EndGlobalSection
+EndGlobal

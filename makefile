@@ -1,5 +1,5 @@
-INC_DIR = HelloShape
-Target = hw1
+INC_DIR = Prolog Interpreter
+Target = hw2
 all: 
 	g++ -std=gnu++0x -c $(INC_DIR)/*.cpp
 ifeq (${OS}, Windows_NT)
