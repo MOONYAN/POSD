@@ -1,4 +1,4 @@
-INC_DIR = Prolog Interpreter
+INC_DIR = Prolog\ Interpreter
 Target = hw2
 all: 
 	g++ -std=gnu++0x -c $(INC_DIR)/*.cpp
