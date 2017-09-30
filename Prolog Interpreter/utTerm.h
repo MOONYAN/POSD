@@ -19,8 +19,6 @@ TEST(Number, symbol) {
 TEST(Number, matchSuccess) {
 	Number number(25);
 	ASSERT_TRUE(number.match(&number));
-	Number newNumber(25);
-	ASSERT_TRUE(number.match(&newNumber));
 }
 
 //?- 25=0.
