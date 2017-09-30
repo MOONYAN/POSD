@@ -33,11 +33,6 @@ bool Atom::match(Term * other)
 	return result;
 }
 
-bool Atom::assignable()
-{
-	return false;
-}
-
 bool Atom::tryAssign(Term * other)
 {
 	return false;

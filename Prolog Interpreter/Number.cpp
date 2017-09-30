@@ -33,11 +33,6 @@ bool Number::match(Term * other)
 	return result;
 }
 
-bool Number::assignable()
-{
-	return false;
-}
-
 bool Number::tryAssign(Term * other)
 {
 	return false;
