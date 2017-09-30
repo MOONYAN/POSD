@@ -44,15 +44,17 @@ TEST(Number, matchSuccessToVar) {
 	Number number(25);
 	Variable X("X");
 	ASSERT_TRUE(number.match(&X));
-	EXPECT_EQ("25",X.value());
+	EXPECT_EQ("25", X.value());
 }
 
-////?- tom=25.
-////false.
-//TEST(Atom, matchFailureDiffConstant) {
-//
-//}
-//
+//?- tom=25.
+//false.
+TEST(Atom, matchFailureDiffConstant) {
+	Atom tom("tom");
+	Number number(25);
+	ASSERT_FALSE(tom.match(&number));
+}
+
 //// ?- tom = X.
 //// X = tom.
 //TEST(Atom, matchSuccessToVar) {
