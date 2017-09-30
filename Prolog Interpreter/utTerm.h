@@ -6,12 +6,13 @@ TEST(Number, ctor) {
 	Number one(1);
 	ASSERT_EQ("1", one.value());
 }
-//
-////test Number.symbol()
-//TEST(Number, symbol) {
-//
-//}
-//
+
+//test Number.symbol()
+TEST(Number, symbol) {
+	Number one(1);
+	ASSERT_EQ("1", one.symbol());
+}
+
 ////?- 25=25.
 ////true.
 //TEST(Number, matchSuccess) {
