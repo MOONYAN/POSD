@@ -22,12 +22,14 @@ TEST(Number, matchSuccess) {
 	ASSERT_TRUE(number.match(&newNumber));
 }
 
-////?- 25=0.
-////false.
-//TEST(Number, matchFailureDiffValue) {
-//
-//}
-//
+//?- 25=0.
+//false.
+TEST(Number, matchFailureDiffValue) {
+	Number number(25);
+	Number other(0);
+	ASSERT_FALSE(number.match(&other));
+}
+
 ////?- 25=tom.
 ////false.
 //TEST(Number, matchFailureDiffConstant) {
