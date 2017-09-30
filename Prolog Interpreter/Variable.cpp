@@ -22,7 +22,14 @@ string Variable::value()
 bool Variable::match(Term * other)
 {
 	bool result = true;
-	assignable() ? _proxyTerm = other : result = false;
+	if (assignable())
+	{
+		_proxyTerm = other;
+	}
+	else
+	{
+		result = false;
+	}
 	return result;
 }
 
