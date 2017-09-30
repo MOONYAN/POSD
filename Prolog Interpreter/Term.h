@@ -7,4 +7,5 @@ public:
 	virtual string symbol() = 0;
 	virtual string value() = 0;
 	virtual bool match(Term* other) = 0;
+	virtual bool assignable() = 0;
 };

@@ -21,5 +21,19 @@ string Number::value()
 
 bool Number::match(Term * other)
 {	
-	return this->value() == other->value();
+	bool result = false;
+	if (this == other)
+	{
+		result = true;
+	}
+	else if (other->assignable())
+	{
+		result = other->match(this);
+	}
+	return result;
+}
+
+bool Number::assignable()
+{
+	return false;
 }

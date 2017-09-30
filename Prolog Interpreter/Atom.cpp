@@ -21,5 +21,19 @@ string Atom::value()
 
 bool Atom::match(Term * other)
 {
+	bool result = false;
+	if (this == other)
+	{
+		result = true;
+	}
+	else if (other->assignable())
+	{
+		result = other->match(this);
+	}
+	return result;
+}
+
+bool Atom::assignable()
+{
 	return false;
 }

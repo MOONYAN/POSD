@@ -1,14 +1,13 @@
 #pragma once
 #include "Term.h"
-#include <string>
-
-class Number : public Term
+class Variable : public Term
 {
 private:
-	string _symbol;
+		string _symbol;
+		Term* _proxyTerm = NULL;
 public:
-	Number(int number);
-	~Number();
+	Variable(string symbol);
+	~Variable();
 
 	// Inherited via Term
 	virtual string symbol() override;
