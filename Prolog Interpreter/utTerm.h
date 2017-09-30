@@ -55,12 +55,15 @@ TEST(Atom, matchFailureDiffConstant) {
 	ASSERT_FALSE(tom.match(&number));
 }
 
-//// ?- tom = X.
-//// X = tom.
-//TEST(Atom, matchSuccessToVar) {
-//
-//}
-//
+// ?- tom = X.
+// X = tom.
+TEST(Atom, matchSuccessToVar) {
+	Atom tom("tom");
+	Variable X("X");
+	ASSERT_TRUE(tom.match(&X));
+	EXPECT_EQ("tom", X.value());
+}
+
 //// ?- X=tom, tom=X.
 //// X = tom.
 //TEST(Atom, matchSuccessToVarInstantedToDiffConstant) {
