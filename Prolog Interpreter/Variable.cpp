@@ -1,5 +1,10 @@
 #include "Variable.h"
 
+bool Variable::canAssign()
+{
+	return _proxyTerm == NULL;
+}
+
 Variable::Variable(string symbol)
 {
 	_symbol = symbol;
@@ -22,7 +27,7 @@ string Variable::value()
 bool Variable::match(Term * other)
 {
 	bool result = true;
-	if (assignable())
+	if (canAssign())
 	{
 		_proxyTerm = other;
 	}
@@ -33,7 +38,12 @@ bool Variable::match(Term * other)
 	return result;
 }
 
-bool Variable::assignable()
+bool Variable::tryAssign(Term * other)
 {
-	return _proxyTerm == NULL;
+	bool result = (canAssign());
+	if (result)
+	{
+		_proxyTerm = other;
+	}
+	return result ;
 }

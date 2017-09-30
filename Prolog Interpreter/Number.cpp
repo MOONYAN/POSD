@@ -26,14 +26,14 @@ bool Number::match(Term * other)
 	{
 		result = true;
 	}
-	else if (other->assignable())
+	else
 	{
-		result = other->match(this);
+		result = other->tryAssign(this);
 	}
 	return result;
 }
 
-bool Number::assignable()
+bool Number::tryAssign(Term * other)
 {
 	return false;
 }
