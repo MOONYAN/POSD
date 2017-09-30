@@ -13,12 +13,15 @@ TEST(Number, symbol) {
 	ASSERT_EQ("1", one.symbol());
 }
 
-////?- 25=25.
-////true.
-//TEST(Number, matchSuccess) {
-//
-//}
-//
+//?- 25=25.
+//true.
+TEST(Number, matchSuccess) {
+	Number number(25);
+	ASSERT_TRUE(number.match(&number));
+	Number newNumber(25);
+	ASSERT_TRUE(number.match(&newNumber));
+}
+
 ////?- 25=0.
 ////false.
 //TEST(Number, matchFailureDiffValue) {

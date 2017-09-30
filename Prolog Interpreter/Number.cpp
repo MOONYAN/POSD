@@ -20,6 +20,6 @@ string Number::value()
 }
 
 bool Number::match(Term * other)
-{
-	return false;
+{	
+	return this->value() == other->value();
 }
