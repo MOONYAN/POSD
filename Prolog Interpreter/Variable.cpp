@@ -37,3 +37,13 @@ bool Variable::assignable()
 {
 	return _proxyTerm == NULL;
 }
+
+bool Variable::tryAssign(Term * other)
+{
+	bool result = (_proxyTerm == NULL);
+	if (result)
+	{
+		_proxyTerm = other;
+	}
+	return result ;
+}

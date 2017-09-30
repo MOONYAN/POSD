@@ -26,14 +26,19 @@ bool Atom::match(Term * other)
 	{
 		result = true;
 	}
-	else if (other->assignable())
+	else
 	{
-		result = other->match(this);
+		result = other->tryAssign(this);
 	}
 	return result;
 }
 
 bool Atom::assignable()
+{
+	return false;
+}
+
+bool Atom::tryAssign(Term * other)
 {
 	return false;
 }
