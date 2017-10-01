@@ -74,12 +74,16 @@ TEST(Atom, matchSuccessToVarInstantedToDiffConstant) {
 	EXPECT_EQ("tom", X.value());
 }
 
-//// ?- X=jerry, tom=X.
-//// false.
-//TEST(Atom, matchFailureToVarInstantedToDiffConstant) {
-//
-//}
-//
+// ?- X=jerry, tom=X.
+// false.
+TEST(Atom, matchFailureToVarInstantedToDiffConstant) {
+	Variable X("X");
+	Atom jerry("jerry");
+	Atom tom("tom");
+	ASSERT_TRUE(X.match(&jerry));
+	EXPECT_FALSE(tom.match(&X));
+}
+
 //// ?- X = 5.
 //// X = 5.
 //TEST(Var, matchSuccessToNumber) {
