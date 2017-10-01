@@ -84,12 +84,15 @@ TEST(Atom, matchFailureToVarInstantedToDiffConstant) {
 	EXPECT_FALSE(tom.match(&X));
 }
 
-//// ?- X = 5.
-//// X = 5.
-//TEST(Var, matchSuccessToNumber) {
-//
-//}
-//
+// ?- X = 5.
+// X = 5.
+TEST(Var, matchSuccessToNumber) {
+	Variable X("X");
+	Number number(5);
+	ASSERT_TRUE(X.match(&number));
+	EXPECT_EQ("5", X.value());
+}
+
 //// ?- X=25, X= 100.
 //// false.
 //TEST(Var, matchFailureToTwoDiffNumbers) {
