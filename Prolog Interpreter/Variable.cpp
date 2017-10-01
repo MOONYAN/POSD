@@ -33,7 +33,7 @@ bool Variable::match(Term * other)
 	}
 	else
 	{
-		result = false;
+		result = this->value() == other->value();
 	}
 	return result;
 }
@@ -45,5 +45,5 @@ bool Variable::tryAssign(Term * other)
 	{
 		_proxyTerm = other;
 	}
-	return result ;
+	return result;
 }
