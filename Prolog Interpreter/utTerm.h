@@ -93,12 +93,17 @@ TEST(Var, matchSuccessToNumber) {
 	EXPECT_EQ("5", X.value());
 }
 
-//// ?- X=25, X= 100.
-//// false.
-//TEST(Var, matchFailureToTwoDiffNumbers) {
-//
-//}
-//
+// ?- X=25, X= 100.
+// false.
+TEST(Var, matchFailureToTwoDiffNumbers) {
+	Variable X("X");
+	Number number1(25);
+	Number number2(100);
+	ASSERT_TRUE(X.match(&number1));	
+	EXPECT_FALSE(X.match(&number2));
+	EXPECT_EQ("25", X.value());
+}
+
 //// ?- X=tom, X= 25.
 //// false.
 //TEST(Var, matchSuccessToAtomThenFailureToNumber) {
