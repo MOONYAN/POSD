@@ -124,8 +124,11 @@ TEST(Var, matchSuccessToAtomThenFailureToNumber2) {
 	EXPECT_FALSE(number.match(&X));
 }
 
-////?- X=tom, X=tom.
-////true.
-//TEST(Var, reAssignTheSameAtom) {
-//
-//}
+//?- X=tom, X=tom.
+//true.
+TEST(Var, reAssignTheSameAtom) {
+	Variable X("X");
+	Atom tom("tom");
+	ASSERT_TRUE(X.match(&tom));
+	ASSERT_TRUE(X.match(&tom));
+}
