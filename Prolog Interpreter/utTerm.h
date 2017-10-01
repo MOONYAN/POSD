@@ -99,17 +99,21 @@ TEST(Var, matchFailureToTwoDiffNumbers) {
 	Variable X("X");
 	Number number1(25);
 	Number number2(100);
-	ASSERT_TRUE(X.match(&number1));	
+	ASSERT_TRUE(X.match(&number1));
 	EXPECT_FALSE(X.match(&number2));
 	EXPECT_EQ("25", X.value());
 }
 
-//// ?- X=tom, X= 25.
-//// false.
-//TEST(Var, matchSuccessToAtomThenFailureToNumber) {
-//
-//}
-//
+// ?- X=tom, X= 25.
+// false.
+TEST(Var, matchSuccessToAtomThenFailureToNumber) {
+	Variable X("X");
+	Atom tom("tom");
+	Number number(25);
+	ASSERT_TRUE(X.match(&tom));
+	EXPECT_FALSE(X.match(&number));
+}
+
 ////?- tom=X, 25=X.
 ////false.
 //TEST(Var, matchSuccessToAtomThenFailureToNumber2) {
