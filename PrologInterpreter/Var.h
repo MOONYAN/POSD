@@ -1,14 +1,14 @@
 #pragma once
 #include "Term.h"
-class Variable : public Term
+class Var : public Term
 {
 private:
 		string _symbol;
 		Term* _proxyTerm = NULL;
 		bool canAssign();
 public:
-	Variable(string symbol);
-	~Variable();
+	Var(string symbol);
+	~Var();
 
 	// Inherited via Term
 	virtual string symbol() override;

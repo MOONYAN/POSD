@@ -24,7 +24,7 @@
     <ClCompile Include="Atom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Variable.cpp">
+    <ClCompile Include="Var.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClInclude Include="Atom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Variable.h">
+    <ClInclude Include="Var.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
