@@ -2,7 +2,7 @@
 
 bool Var::canAssign()
 {
-	return _proxyTerm == NULL;
+	return _proxyTerm == this;
 }
 
 Var::Var(string symbol)

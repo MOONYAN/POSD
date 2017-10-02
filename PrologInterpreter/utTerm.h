@@ -132,3 +132,15 @@ TEST(Var, reAssignTheSameAtom) {
 	ASSERT_TRUE(X.match(tom));
 	ASSERT_TRUE(X.match(tom));
 }
+
+//?- X=tom, X=tom.
+//true.
+TEST(Var, matchSelf) {
+	Var X("X");
+	Atom tom("tom");
+	Number number(1);
+	ASSERT_TRUE(X.match(X));
+	ASSERT_TRUE(X.match(tom));
+	ASSERT_TRUE(tom.match(tom));
+	ASSERT_TRUE(number.match(number));
+}

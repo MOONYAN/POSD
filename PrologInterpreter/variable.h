@@ -4,7 +4,7 @@ class Var : public Term
 {
 private:
 		string _symbol;
-		Term* _proxyTerm = NULL;
+		Term* _proxyTerm = this;
 		bool canAssign();
 public:
 	Var(string symbol);
