@@ -1,4 +1,4 @@
-#include "Var.h"
+#include "variable.h"
 
 bool Var::canAssign()
 {
