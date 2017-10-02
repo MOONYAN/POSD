@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Prolog Interpreter", "Prolog Interpreter\Prolog Interpreter.vcxproj", "{66916AE6-8518-4DBA-9A11-2EE63F89EEE1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrologInterpreter", "PrologInterpreter\PrologInterpreter.vcxproj", "{66916AE6-8518-4DBA-9A11-2EE63F89EEE1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoogleTest", "GoogleTest\GoogleTest.vcxproj", "{B683CCBB-DC4A-4CE1-A120-01645B5FAE1F}"
 EndProject
