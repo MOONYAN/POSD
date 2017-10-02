@@ -24,26 +24,26 @@ string Var::value()
 	return _proxyTerm->value();
 }
 
-bool Var::match(Term * other)
+bool Var::match(Term& other)
 {
 	bool result = true;
 	if (canAssign())
 	{
-		_proxyTerm = other;
+		_proxyTerm = &other;
 	}
 	else
 	{
-		result = this->value() == other->value();
+		result = this->value() == other.value();
 	}
 	return result;
 }
 
-bool Var::tryAssign(Term * other)
+bool Var::tryAssign(Term& other)
 {
 	bool result = (canAssign());
 	if (result)
 	{
-		_proxyTerm = other;
+		_proxyTerm = &other;
 	}
 	return result;
 }

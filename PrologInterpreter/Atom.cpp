@@ -19,14 +19,14 @@ string Atom::value()
 	return _symbol;
 }
 
-bool Atom::match(Term * other)
+bool Atom::match(Term& other)
 {
-	bool result = other->tryAssign(this);
-	result = (this->value() == other->value());
+	bool result = other.tryAssign(*this);
+	result = (this->value() == other.value());
 	return result;
 }
 
-bool Atom::tryAssign(Term * other)
+bool Atom::tryAssign(Term& other)
 {
 	return false;
 }
