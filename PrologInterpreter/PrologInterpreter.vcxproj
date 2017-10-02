@@ -125,15 +125,14 @@
     <ClCompile Include="Atom.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Variable.cpp" />
+    <ClCompile Include="Var.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Atom.h" />
     <ClInclude Include="Number.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="Term.h" />
     <ClInclude Include="utTerm.h" />
-    <ClInclude Include="Variable.h" />
+    <ClInclude Include="Var.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

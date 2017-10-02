@@ -19,21 +19,21 @@ string Number::value()
 	return _symbol;
 }
 
-bool Number::match(Term * other)
+bool Number::match(Term& other)
 {	
 	bool result = false;
-	if (this == other)
+	if (this == &other)
 	{
 		result = true;
 	}
 	else
 	{
-		result = other->tryAssign(this);
+		result = other.tryAssign(*this);
 	}
 	return result;
 }
 
-bool Number::tryAssign(Term * other)
+bool Number::tryAssign(Term& other)
 {
 	return false;
 }
