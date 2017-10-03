@@ -1,30 +1,30 @@
 #include "variable.h"
 
-bool Var::canAssign()
+bool Variable::canAssign()
 {
 	return _proxyTerm == this;
 }
 
-Var::Var(string symbol)
+Variable::Variable(string symbol)
 {
 	_symbol = symbol;
 }
 
-Var::~Var()
+Variable::~Variable()
 {
 }
 
-string Var::symbol()
+string Variable::symbol()
 {
 	return _symbol;
 }
 
-string Var::value()
+string Variable::value()
 {
 	return _proxyTerm->value();
 }
 
-bool Var::match(Term& other)
+bool Variable::match(Term& other)
 {
 	bool result = true;
 	if (canAssign())
@@ -38,7 +38,7 @@ bool Var::match(Term& other)
 	return result;
 }
 
-bool Var::tryAssign(Term& other)
+bool Variable::tryAssign(Term& other)
 {
 	bool result = (canAssign());
 	if (result)
