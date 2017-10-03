@@ -19,7 +19,8 @@ TEST(Number, symbol) {
 //true.
 TEST(Number, matchSuccess) {
 	Number number(25);
-	ASSERT_TRUE(number.match(number));
+	Number other(25);
+	ASSERT_TRUE(number.match(other));
 }
 
 //?- 25=0.

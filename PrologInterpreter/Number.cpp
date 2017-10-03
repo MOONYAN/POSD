@@ -21,15 +21,8 @@ string Number::value()
 
 bool Number::match(Term& other)
 {	
-	bool result = false;
-	if (this == &other)
-	{
-		result = true;
-	}
-	else
-	{
-		result = other.tryAssign(*this);
-	}
+	bool result = other.tryAssign(*this);
+	result = (this->value() == other.value());
 	return result;
 }
 
