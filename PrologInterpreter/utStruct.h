@@ -63,15 +63,15 @@ TEST(Struct, match4)
 	EXPECT_TRUE(hobby.match(hobby2));
 }
 
-//TEST(Struct, match5)
-//{
-//	Atom tom("tom");
-//	Atom chaseMouse("chaseMouse");
-//	std::vector<Term *> v = { &tom, &chaseMouse };
-//	Struct hobby(Atom("hobby"), v);
-//	EXPECT_FALSE(hobby.match(tom));
-//}
-//
+TEST(Struct, match5)
+{
+	Atom tom("tom");
+	Atom chaseMouse("chaseMouse");
+	std::vector<Term *> v = { &tom, &chaseMouse };
+	Struct hobby(Atom("hobby"), v);
+	EXPECT_FALSE(hobby.match(tom));
+}
+
 //// When Struct s contains a Variable X
 //// Then #symbol() should return "s(X)"
 //// and #value() should also return "s(X)"
