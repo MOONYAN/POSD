@@ -3,17 +3,17 @@
 #include "Atom.h"
 #include "Struct.h"
 
-//TEST(Struct, hobby)
-//{
-//	Atom tom("tom");
-//	Atom chaseMouse("chaseMouse");
-//	std::vector<Term *> v = { &tom, &chaseMouse };
-//	Struct hobby(Atom("hobby"), v);
-//	ASSERT_EQ("hobby", hobby.name().symbol());
-//	ASSERT_EQ("tom", hobby.args(0)->symbol());
-//	ASSERT_EQ("chaseMouse", hobby.args(1)->symbol());
-//}
-//
+TEST(Struct, hobby)
+{
+	Atom tom("tom");
+	Atom chaseMouse("chaseMouse");
+	std::vector<Term *> v = { &tom, &chaseMouse };
+	Struct hobby(Atom("hobby"), v);
+	ASSERT_EQ("hobby", hobby.name().symbol());
+	ASSERT_EQ("tom", hobby.args(0)->symbol());
+	ASSERT_EQ("chaseMouse", hobby.args(1)->symbol());
+}
+
 //TEST(Struct, symbol)
 //{
 //	Atom tom("tom");

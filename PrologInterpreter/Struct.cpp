@@ -1,17 +1,16 @@
 #include "Struct.h"
 
-Struct::Struct(string name, vector<Term*>& childs) :_childs(childs)
-{
-	_name = new Atom(name);
+Struct::Struct(Atom & name, vector<Term*>& childs) :_name(name), _childs(childs)
+{	
 }
 
 Struct::~Struct()
 {
 }
 
-string Struct::name()
+Atom Struct::name()
 {
-	return _name->symbol();
+	return _name;
 }
 
 Term * Struct::args(int index)
@@ -22,7 +21,7 @@ Term * Struct::args(int index)
 string Struct::symbol()
 {
 	stringstream ss;
-	ss << _name->symbol() << "(";
+	ss << _name.symbol() << "(";
 	for (int i = 0, maxpos = _childs.size() - 1; i <= maxpos; i++)
 	{
 		ss << _childs[i]->symbol();

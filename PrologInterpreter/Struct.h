@@ -7,12 +7,12 @@
 class Struct : public Term
 {
 private:
-	Atom* _name;
+	Atom _name;
 	vector<Term*> _childs;
 public:
-	Struct(string name, vector<Term*>& childs);
+	Struct(Atom & name, vector<Term*>& childs);
 	~Struct();
-	string name();
+	Atom name();
 	Term* args(int index);
 
 	// Inherited via Term
