@@ -53,16 +53,16 @@ TEST(Struct, match3) {
 	EXPECT_FALSE(hobby.match(hobby2));
 }
 
-//TEST(Struct, match4)
-//{
-//	Atom tom("tom");
-//	Atom chaseMouse("chaseMouse");
-//	std::vector<Term *> v = { &tom, &chaseMouse };
-//	Struct hobby(Atom("hobby"), v);
-//	Struct hobby2(Atom("hobby"), v);
-//	EXPECT_TRUE(hobby.match(hobby2));
-//}
-//
+TEST(Struct, match4)
+{
+	Atom tom("tom");
+	Atom chaseMouse("chaseMouse");
+	std::vector<Term *> v = { &tom, &chaseMouse };
+	Struct hobby(Atom("hobby"), v);
+	Struct hobby2(Atom("hobby"), v);
+	EXPECT_TRUE(hobby.match(hobby2));
+}
+
 //TEST(Struct, match5)
 //{
 //	Atom tom("tom");
