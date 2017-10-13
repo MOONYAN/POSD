@@ -21,7 +21,17 @@ Term * Struct::args(int index)
 
 string Struct::symbol()
 {
-	return string();
+	stringstream ss;
+	ss << _name->symbol() << "(";
+	for (int i = 0, maxpos = _childs.size() - 1; i <= maxpos; i++)
+	{
+		ss << _childs[i]->symbol();
+		if (i == maxpos)
+			ss << ")";
+		else
+			ss << ", ";
+	}
+	return ss.str();
 }
 
 string Struct::value()

@@ -2,6 +2,7 @@
 #include "Term.h"
 #include "Atom.h"
 #include <vector>
+#include <sstream>
 
 class Struct : public Term
 {
