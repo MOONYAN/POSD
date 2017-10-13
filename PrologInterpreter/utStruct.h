@@ -14,15 +14,15 @@ TEST(Struct, hobby)
 	ASSERT_EQ("chaseMouse", hobby.args(1)->symbol());
 }
 
-//TEST(Struct, symbol)
-//{
-//	Atom tom("tom");
-//	Atom chaseMouse("chaseMouse");
-//	std::vector<Term *> v = { &tom, &chaseMouse };
-//	Struct hobby(Atom("hobby"), v);
-//	ASSERT_EQ("hobby(tom, chaseMouse)", hobby.symbol());
-//}
-//
+TEST(Struct, symbol)
+{
+	Atom tom("tom");
+	Atom chaseMouse("chaseMouse");
+	std::vector<Term *> v = { &tom, &chaseMouse };
+	Struct hobby(Atom("hobby"), v);
+	ASSERT_EQ("hobby(tom, chaseMouse)", hobby.symbol());
+}
+
 //TEST(Struct, match1)
 //{
 //	Atom tom("tom");
