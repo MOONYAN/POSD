@@ -2,6 +2,7 @@
 #include <vector>
 #include "Atom.h"
 #include "Struct.h"
+#include "variable.h"
 
 TEST(Struct, hobby)
 {
@@ -72,14 +73,18 @@ TEST(Struct, match5)
 	EXPECT_FALSE(hobby.match(tom));
 }
 
-//// When Struct s contains a Variable X
-//// Then #symbol() should return "s(X)"
-//// and #value() should also return "s(X)"
-//TEST(Struct, var)
-//{
-//
-//}
-//
+// When Struct s contains a Variable X
+// Then #symbol() should return "s(X)"
+// and #value() should also return "s(X)"
+TEST(Struct, var)
+{
+	Variable X("X");
+	std::vector<Term *> v = { &X };
+	Struct s(Atom("s"), v);
+	ASSERT_EQ("s(X)", s.symbol());
+	ASSERT_EQ("s(X)", s.value());
+}
+
 //// Given there is Struct s contains a Variable X
 //// When Variable X matches an Atom "tom"
 //// Then #symbol() should return "s(X)"
