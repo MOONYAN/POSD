@@ -23,16 +23,16 @@ TEST(Struct, symbol)
 	ASSERT_EQ("hobby(tom, chaseMouse)", hobby.symbol());
 }
 
-//TEST(Struct, match1)
-//{
-//	Atom tom("tom");
-//	Atom chaseMouse("chaseMouse");
-//	std::vector<Term *> v = { &tom, &chaseMouse };
-//	Struct hobby(Atom("hobby"), v);
-//	Struct hobby2(Atom("hobby2"), v);
-//	EXPECT_FALSE(hobby.match(hobby2));
-//}
-//
+TEST(Struct, match1)
+{
+	Atom tom("tom");
+	Atom chaseMouse("chaseMouse");
+	std::vector<Term *> v = { &tom, &chaseMouse };
+	Struct hobby(Atom("hobby"), v);
+	Struct hobby2(Atom("hobby2"), v);
+	EXPECT_FALSE(hobby.match(hobby2));
+}
+
 //TEST(Struct, match2) {
 //	Atom tom("tom");
 //	Atom chaseMouse("chaseMouse");

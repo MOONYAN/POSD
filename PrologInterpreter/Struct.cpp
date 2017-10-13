@@ -35,12 +35,14 @@ string Struct::symbol()
 
 string Struct::value()
 {
-	return string();
+	return this->symbol();
 }
 
 bool Struct::match(Term & other)
 {
-	return false;
+	bool result = other.tryAssign(*this);
+	result = (this->value() == other.value());
+	return result;
 }
 
 bool Struct::tryAssign(Term & other)
