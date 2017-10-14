@@ -1,11 +1,11 @@
 #pragma once
 #include "Variable.h"
-//
-//TEST(Variable, constructor) {
-//	Variable X("X");
-//	ASSERT_EQ("X", X._symbol);
-//}
-//
+
+TEST(Variable, constructor) {
+	Variable X("X");
+	ASSERT_EQ("X", X.symbol());
+}
+
 //TEST(Variable, matching) {
 //	Atom tom("tom");
 //	Variable X("X");
