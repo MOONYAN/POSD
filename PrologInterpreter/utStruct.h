@@ -100,16 +100,22 @@ TEST(Struct, var_match_atom)
 	ASSERT_EQ("s(tom)", s.value());
 }
 
-//// Given there are Struct s1 and Struct s2
-//// When Struct s1 contains Struct s2
-//// And Struct s2 contains a Variable X
-//// Then #symbol() of s1 should return "s1(s2(X))"
-//// and #value() of s1 should also return "s1(s2(X))"
-//TEST(Struct, nested_struct1)
-//{
-//
-//}
-//
+// Given there are Struct s1 and Struct s2
+// When Struct s1 contains Struct s2
+// And Struct s2 contains a Variable X
+// Then #symbol() of s1 should return "s1(s2(X))"
+// and #value() of s1 should also return "s1(s2(X))"
+TEST(Struct, nested_struct1)
+{
+	Variable X("X");
+	std::vector<Term *> v2 = { &X };
+	Struct s2(Atom("s2"), v2);
+	std::vector<Term *> v1 = { &s2 };
+	Struct s1(Atom("s1"), v1);
+	ASSERT_EQ("s1(s2(X))",s1.symbol());
+	ASSERT_EQ("s1(s2(X))", s1.value());
+}
+
 //// Given there are Struct s1 contains Struct s2
 //// And Struct s2 contains Variable X
 //// When Variable X matches an Atom "tom"
