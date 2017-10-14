@@ -21,12 +21,14 @@ TEST(Variable, haveValue) {
 	ASSERT_FALSE(X.match(jerry));
 }
 
-//// ?- X=2.7182.
-//// X=2.7182
-//TEST(Variable, numE_to_varX) {
-//
-//}
-//
+// ?- X=2.7182.
+// X=2.7182
+TEST(Variable, numE_to_varX) {
+	Variable X("X");
+	Number n(2.1782);
+	ASSERT_TRUE(X.match(n));
+}
+
 //// ?- X=Y, X=1.
 //// Y=1
 //TEST(Variable, varY_to_varX_and_num1_to_varX) {
