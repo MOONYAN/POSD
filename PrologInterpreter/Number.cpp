@@ -5,6 +5,15 @@ Number::Number(int number)
 	_symbol = std::to_string(number);
 }
 
+Number::Number(double number)
+{
+	stringstream ss;
+	ss << std::fixed << std::showpoint;
+	ss << std::setprecision(2);
+	ss << number;
+	_symbol = ss.str();
+}
+
 Number::~Number()
 {
 }
