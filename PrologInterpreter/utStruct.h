@@ -116,16 +116,24 @@ TEST(Struct, nested_struct1)
 	ASSERT_EQ("s1(s2(X))", s1.value());
 }
 
-//// Given there are Struct s1 contains Struct s2
-//// And Struct s2 contains Variable X
-//// When Variable X matches an Atom "tom"
-//// Then #symbol() of s1 should return "s1(s2(X))"
-//// and #value() of s1 should return "s1(s2(tom))"
-//TEST(Struct, nested_struct2)
-//{
-//
-//}
-//
+// Given there are Struct s1 contains Struct s2
+// And Struct s2 contains Variable X
+// When Variable X matches an Atom "tom"
+// Then #symbol() of s1 should return "s1(s2(X))"
+// and #value() of s1 should return "s1(s2(tom))"
+TEST(Struct, nested_struct2)
+{
+	Variable X("X");
+	Atom tom("tom");
+	ASSERT_TRUE(X.match(tom));
+	std::vector<Term *> v2 = { &X };
+	Struct s2(Atom("s2"), v2);
+	std::vector<Term *> v1 = { &s2 };
+	Struct s1(Atom("s1"), v1);
+	ASSERT_EQ("s1(s2(X))", s1.symbol());
+	ASSERT_EQ("s1(s2(tom))", s1.value());
+}
+
 //// Given there are Struct s1 contains Struct s2
 //// And Struct s2 contains Variable X
 //// When Variable X matches an Number pi: 3.14
