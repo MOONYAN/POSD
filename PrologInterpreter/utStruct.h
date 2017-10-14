@@ -85,15 +85,21 @@ TEST(Struct, var)
 	ASSERT_EQ("s(X)", s.value());
 }
 
-//// Given there is Struct s contains a Variable X
-//// When Variable X matches an Atom "tom"
-//// Then #symbol() should return "s(X)"
-//// and #value() should also return "s(tom)"
-//TEST(Struct, var_match_atom)
-//{
-//
-//}
-//
+// Given there is Struct s contains a Variable X
+// When Variable X matches an Atom "tom"
+// Then #symbol() should return "s(X)"
+// and #value() should also return "s(tom)"
+TEST(Struct, var_match_atom)
+{
+	Variable X("X");
+	Atom tom("tom");
+	ASSERT_TRUE(X.match(tom));
+	std::vector<Term *> v = { &X };
+	Struct s(Atom("s"), v);
+	ASSERT_EQ("s(X)", s.symbol());
+	ASSERT_EQ("s(tom)", s.value());
+}
+
 //// Given there are Struct s1 and Struct s2
 //// When Struct s1 contains Struct s2
 //// And Struct s2 contains a Variable X
