@@ -35,7 +35,17 @@ string Struct::symbol()
 
 string Struct::value()
 {
-	return this->symbol();
+	stringstream ss;
+	ss << _name.symbol() << "(";
+	for (int i = 0, maxpos = _childs.size() - 1; i <= maxpos; i++)
+	{
+		ss << _childs[i]->value();
+		if (i == maxpos)
+			ss << ")";
+		else
+			ss << ", ";
+	}
+	return ss.str();
 }
 
 bool Struct::match(Term & other)
