@@ -112,7 +112,7 @@ TEST(Struct, nested_struct1)
 	Struct s2(Atom("s2"), v2);
 	std::vector<Term *> v1 = { &s2 };
 	Struct s1(Atom("s1"), v1);
-	ASSERT_EQ("s1(s2(X))",s1.symbol());
+	ASSERT_EQ("s1(s2(X))", s1.symbol());
 	ASSERT_EQ("s1(s2(X))", s1.value());
 }
 
@@ -152,13 +152,23 @@ TEST(Struct, nested_struct3)
 	ASSERT_EQ("s1(s2(3.14))", s1.value());
 }
 
-//// Given there are Struct s1 contains Struct s2 and Variable X
-//// And Struct s2 contains Variable Y
-//// When Variable X matches Variable Y
-//// And Variable X matches Atom "kent_beck"
-//// Then #symbol() of s1 should return "s1(s2(Y), X)"
-//// and #value() of s1 should return "s1(s2(kent_beck), kent_beck)"
-//TEST(Struct, nested_struct_and_multiVariable)
-//{
-//
-//}
+// Given there are Struct s1 contains Struct s2 and Variable X
+// And Struct s2 contains Variable Y
+// When Variable X matches Variable Y
+// And Variable X matches Atom "kent_beck"
+// Then #symbol() of s1 should return "s1(s2(Y), X)"
+// and #value() of s1 should return "s1(s2(kent_beck), kent_beck)"
+TEST(Struct, nested_struct_and_multiVariable)
+{
+	Variable Y("Y");
+	std::vector<Term *> v2 = { &Y };
+	Struct s2(Atom("s2"), v2);
+	Variable X("X");
+	std::vector<Term *> v1 = { &s2, &X };
+	Struct s1(Atom("s1"), v1);
+	Atom kent_beck("kent_beck");
+	ASSERT_TRUE(X.match(Y));
+	ASSERT_TRUE(Y.match(kent_beck));	
+	EXPECT_EQ("s1(s2(Y), X)",s1.symbol());
+	EXPECT_EQ("s1(s2(kent_beck), kent_beck)", s1.value());
+}
