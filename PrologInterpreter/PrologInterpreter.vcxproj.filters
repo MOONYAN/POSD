@@ -53,5 +53,8 @@
     <ClInclude Include="Struct.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="utVariable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

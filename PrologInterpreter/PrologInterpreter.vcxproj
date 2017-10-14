@@ -135,6 +135,7 @@
     <ClInclude Include="Term.h" />
     <ClInclude Include="utStruct.h" />
     <ClInclude Include="utTerm.h" />
+    <ClInclude Include="utVariable.h" />
     <ClInclude Include="Variable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
