@@ -8,10 +8,8 @@ Number::Number(int number)
 Number::Number(double number)
 {
 	stringstream ss;
-	ss << std::fixed << std::showpoint;
-	ss << std::setprecision(2);
 	ss << number;
-	_symbol = ss.str();
+	ss >> _symbol;
 }
 
 Number::~Number()

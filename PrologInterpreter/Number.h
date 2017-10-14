@@ -2,7 +2,6 @@
 #include "Term.h"
 #include <string>
 #include <sstream>
-#include <iomanip>
 
 class Number : public Term
 {
