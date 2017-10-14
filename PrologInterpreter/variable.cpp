@@ -21,7 +21,12 @@ string Variable::symbol()
 
 string Variable::value()
 {
-	return _proxyTerm->value();
+	string result = this->_symbol;
+	if (!canAssign())
+	{
+		result = _proxyTerm->value();
+	}
+	return result;
 }
 
 bool Variable::match(Term& other)
