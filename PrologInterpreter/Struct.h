@@ -10,7 +10,7 @@ private:
 	Atom _name;
 	vector<Term*> _childs;
 public:
-	Struct(Atom & name, vector<Term*>& childs);
+	Struct(Atom name, vector<Term*>& childs);
 	~Struct();
 	Atom name();
 	Term* args(int index);

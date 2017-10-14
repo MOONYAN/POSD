@@ -1,7 +1,7 @@
 #pragma once
 #include "Number.h"
 #include "Atom.h"
-#include "variable.h"
+#include "Variable.h"
 
 //test Number.value()
 TEST(Number, ctor) {

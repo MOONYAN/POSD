@@ -2,7 +2,7 @@
 #include <vector>
 #include "Atom.h"
 #include "Struct.h"
-#include "variable.h"
+#include "Variable.h"
 
 TEST(Struct, hobby)
 {
