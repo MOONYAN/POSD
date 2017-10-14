@@ -27,6 +27,7 @@ TEST(Variable, numE_to_varX) {
 	Variable X("X");
 	Number n(2.1782);
 	ASSERT_TRUE(X.match(n));
+	EXPECT_EQ("2.1782",X.value());
 }
 
 //// ?- X=Y, X=1.
