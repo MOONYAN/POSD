@@ -14,6 +14,11 @@ Variable::~Variable()
 {
 }
 
+Proxy * Variable::proxy()
+{
+	return _proxy;
+}
+
 string Variable::symbol()
 {
 	return _symbol;
