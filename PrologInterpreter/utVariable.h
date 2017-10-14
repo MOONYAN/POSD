@@ -6,13 +6,13 @@ TEST(Variable, constructor) {
 	ASSERT_EQ("X", X.symbol());
 }
 
-//TEST(Variable, matching) {
-//	Atom tom("tom");
-//	Variable X("X");
-//	X.match(tom);
-//	ASSERT_EQ("tom", X.value());
-//}
-//
+TEST(Variable, matching) {
+	Atom tom("tom");
+	Variable X("X");
+	X.match(tom);
+	ASSERT_EQ("tom", X.value());
+}
+
 //TEST(Variable, haveValue) {
 //	Atom tom("tom");
 //	Atom jerry("jerry");
