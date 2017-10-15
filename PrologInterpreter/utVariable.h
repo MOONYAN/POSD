@@ -62,12 +62,17 @@ TEST(Variable, varX_match_varX_and_num1_to_varX) {
 	EXPECT_EQ("1", X.value());
 }
 
-//// ?- Y=1, X=Y.
-//// X=1
-//TEST(Variable, num1_to_varY_and_varX_match_varY) {
-//
-//}
-//
+// ?- Y=1, X=Y.
+// X=1
+TEST(Variable, num1_to_varY_and_varX_match_varY) {
+	Variable X("X");
+	Variable Y("Y");
+	Number n(1);
+	ASSERT_TRUE(Y.match(n));
+	ASSERT_TRUE(X.match(Y));
+	EXPECT_EQ("1", X.value());
+}
+
 //// ?- X=Y, Y=Z, Z=1
 //// X=1, Y=1, Z=1
 //TEST(Variable, num1_to_varZ_to_varY_to_varX) {
