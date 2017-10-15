@@ -32,14 +32,14 @@ TEST(Variable, numE_to_varX) {
 
 // ?- X=Y, X=1.
 // Y=1
-//TEST(Variable, varY_to_varX_and_num1_to_varX) {
-//	Variable X("X");
-//	Variable Y("Y");
-//	Number n(1);
-//	ASSERT_TRUE(X.match(Y));
-//	ASSERT_TRUE(X.match(n));
-//	EXPECT_EQ("1",Y.value());
-//}
+TEST(Variable, varY_to_varX_and_num1_to_varX) {
+	Variable X("X");
+	Variable Y("Y");
+	Number n(1);
+	ASSERT_TRUE(X.match(Y));
+	ASSERT_TRUE(X.match(n));
+	EXPECT_EQ("1",Y.value());
+}
 
 //// ?- X=Y, Y=1.
 //// X=1

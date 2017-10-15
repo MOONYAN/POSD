@@ -79,7 +79,7 @@ bool Variable::assignable()
 	{
 		result = _proxy->assignable();
 	}
-	return false;
+	return result;
 }
 
 Proxy * Variable::proxy()
@@ -94,7 +94,10 @@ Proxy * Variable::proxy()
 void Variable::setProxy(Proxy * node)
 {
 	_proxy = this->proxy();
-	_proxy->setTailProxy(node);
+	if (_proxy == NULL)
+		_proxy = node;
+	else
+		_proxy->setTailProxy(node);
 }
 
 Term * Variable::proxyTerm()
