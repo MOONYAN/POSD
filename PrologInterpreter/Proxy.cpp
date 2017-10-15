@@ -4,6 +4,10 @@ Proxy::Proxy(string dirtyValue) :_dirtyValue(dirtyValue)
 {
 }
 
+Proxy::Proxy(Term * proxyTerm) : _proxyTerm(proxyTerm)
+{
+}
+
 Proxy::~Proxy()
 {
 }

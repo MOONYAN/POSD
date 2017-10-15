@@ -9,6 +9,7 @@ private:
 	Proxy* _next = NULL;
 public:
 	Proxy(string dirtyValue);
+	Proxy(Term* proxyTerm);
 	~Proxy();
 	void setDirtyValue(string dirtyValue);
 	bool assignable();
