@@ -1,5 +1,6 @@
 #pragma once
 #include "Variable.h"
+#include <vector>
 
 TEST(Variable, constructor) {
 	Variable X("X");
@@ -103,15 +104,21 @@ TEST(Variable, num1_to_varZ_to_varX_and_varY_to_varX) {
 	EXPECT_EQ("1", Z.value());
 }
 
-//// Give there is a Struct s contains Variable X
-//// And another Variable Y
-//// When Y matches Struct s
-//// Then #symbol() of Y should return "Y"
-//// And #value() of Y should return "s(X)"
-//TEST(Variable, Struct1) {
-//
-//}
-//
+// Give there is a Struct s contains Variable X
+// And another Variable Y
+// When Y matches Struct s
+// Then #symbol() of Y should return "Y"
+// And #value() of Y should return "s(X)"
+TEST(Variable, Struct1) {
+	Variable X("X");
+	vector<Term*> v = { &X };
+	Struct s(Atom("s"), v);
+	Variable Y("Y");
+	ASSERT_TRUE(Y.match(s));
+	EXPECT_EQ("Y", Y.symbol());
+	EXPECT_EQ("s(X)", Y.value());
+}
+
 //// Give there is a Struct s contains Variable X
 //// And another Variable Y
 //// When Y matches Struct s
