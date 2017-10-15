@@ -88,12 +88,21 @@ TEST(Variable, num1_to_varZ_to_varY_to_varX) {
 	EXPECT_EQ("1", Z.value());
 }
 
-//// ?- X=Y, X=Z, Z=1
-//// X=1, Y=1, Z=1
-//TEST(Variable, num1_to_varZ_to_varX_and_varY_to_varX) {
-//
-//}
-//
+// ?- X=Y, X=Z, Z=1
+// X=1, Y=1, Z=1
+TEST(Variable, num1_to_varZ_to_varX_and_varY_to_varX) {
+	Variable X("X");
+	Variable Y("Y");
+	Variable Z("Z");
+	Number n(1);
+	ASSERT_TRUE(X.match(Y));
+	ASSERT_TRUE(X.match(Z));
+	ASSERT_TRUE(Z.match(n));
+	EXPECT_EQ("1", X.value());
+	EXPECT_EQ("1", Y.value());
+	EXPECT_EQ("1", Z.value());
+}
+
 //// Give there is a Struct s contains Variable X
 //// And another Variable Y
 //// When Y matches Struct s
