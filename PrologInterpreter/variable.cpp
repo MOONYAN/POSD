@@ -46,28 +46,31 @@ Variable::~Variable()
 bool Variable::match(Variable & other)
 {
 	bool result = true;
-	if (this->assignable())
+	if (this->value() != other.value())
 	{
-		if (other.assignable())
+		if (this->assignable())
 		{
-			createNewNode(this, &other);
+			if (other.assignable())
+			{
+				createNewNode(this, &other);
+			}
+			else
+			{
+				copyNodeToSelf(this, &other);
+			}
 		}
 		else
 		{
-			copyNodeToSelf(this, &other);
+			if (other.assignable())
+			{
+				copyNodeToOther(this, &other);
+			}
+			else
+			{
+				result = doMatchTerm(this, &other);
+			}
 		}
-	}
-	else
-	{
-		if (other.assignable())
-		{
-			copyNodeToOther(this, &other);
-		}
-		else
-		{
-			result = doMatchTerm(this, &other);
-		}
-	}
+	}	
 	return result;
 }
 
