@@ -27,7 +27,7 @@ TEST(Variable, numE_to_varX) {
 	Variable X("X");
 	Number n(2.1782);
 	ASSERT_TRUE(X.match(n));
-	EXPECT_EQ("2.1782",X.value());
+	EXPECT_EQ("2.1782", X.value());
 }
 
 // ?- X=Y, X=1.
@@ -38,7 +38,7 @@ TEST(Variable, varY_to_varX_and_num1_to_varX) {
 	Number n(1);
 	ASSERT_TRUE(X.match(Y));
 	ASSERT_TRUE(X.match(n));
-	EXPECT_EQ("1",Y.value());
+	EXPECT_EQ("1", Y.value());
 }
 
 //// ?- X=Y, Y=1.
@@ -49,7 +49,7 @@ TEST(Variable, varY_to_varX_and_num1_to_varY) {
 	Number n(1);
 	ASSERT_TRUE(X.match(Y));
 	ASSERT_TRUE(Y.match(n));
-	EXPECT_EQ("1",X.value());
+	EXPECT_EQ("1", X.value());
 }
 
 //// ?- X=X, X=1.
@@ -73,12 +73,21 @@ TEST(Variable, num1_to_varY_and_varX_match_varY) {
 	EXPECT_EQ("1", X.value());
 }
 
-//// ?- X=Y, Y=Z, Z=1
-//// X=1, Y=1, Z=1
-//TEST(Variable, num1_to_varZ_to_varY_to_varX) {
-//
-//}
-//
+// ?- X=Y, Y=Z, Z=1
+// X=1, Y=1, Z=1
+TEST(Variable, num1_to_varZ_to_varY_to_varX) {
+	Variable X("X");
+	Variable Y("Y");
+	Variable Z("Z");
+	Number n(1);
+	ASSERT_TRUE(X.match(Y));
+	ASSERT_TRUE(Y.match(Z));
+	ASSERT_TRUE(Z.match(n));
+	EXPECT_EQ("1", X.value());
+	EXPECT_EQ("1", Y.value());
+	EXPECT_EQ("1", Z.value());
+}
+
 //// ?- X=Y, X=Z, Z=1
 //// X=1, Y=1, Z=1
 //TEST(Variable, num1_to_varZ_to_varX_and_varY_to_varX) {
