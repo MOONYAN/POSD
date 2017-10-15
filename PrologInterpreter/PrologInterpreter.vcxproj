@@ -124,6 +124,7 @@
   <ItemGroup>
     <ClCompile Include="Atom.cpp" />
     <ClCompile Include="Number.cpp" />
+    <ClCompile Include="Proxy.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Struct.cpp" />
     <ClCompile Include="Variable.cpp" />
@@ -131,8 +132,10 @@
   <ItemGroup>
     <ClInclude Include="Atom.h" />
     <ClInclude Include="Number.h" />
+    <ClInclude Include="Proxy.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="Term.h" />
+    <ClInclude Include="utProxy.h" />
     <ClInclude Include="utStruct.h" />
     <ClInclude Include="utTerm.h" />
     <ClInclude Include="utVariable.h" />
