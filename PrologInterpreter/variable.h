@@ -4,14 +4,18 @@
 class Variable : public Term
 {
 private:
-		string _symbol;
-		Term* _proxyTerm = this;
-		bool canAssign();
-		Proxy* _proxy = NULL;
+	string _symbol;
+	Term* _proxyTerm = this;
+	bool canAssign();
+	Proxy* _proxy = NULL;
 public:
 	Variable(string symbol);
 	~Variable();
+	bool match(Variable& other);
+	bool assignable();
 	Proxy* proxy();
+	void setProxy(Proxy* node);
+	Term* proxyTem();
 
 	// Inherited via Term
 	virtual string symbol() override;

@@ -14,9 +14,28 @@ Variable::~Variable()
 {
 }
 
+bool Variable::match(Variable & other)
+{
+	return false;
+}
+
+bool Variable::assignable()
+{
+	return false;
+}
+
 Proxy * Variable::proxy()
 {
 	return _proxy;
+}
+
+void Variable::setProxy(Proxy * node)
+{
+}
+
+Term * Variable::proxyTem()
+{
+	return nullptr;
 }
 
 string Variable::symbol()
