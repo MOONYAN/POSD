@@ -54,10 +54,14 @@ TEST(Variable, varY_to_varX_and_num1_to_varY) {
 
 //// ?- X=X, X=1.
 //// X=1
-//TEST(Variable, varX_match_varX_and_num1_to_varX) {
-//
-//}
-//
+TEST(Variable, varX_match_varX_and_num1_to_varX) {
+	Variable X("X");
+	Number n(1);
+	ASSERT_TRUE(X.match(X));
+	ASSERT_TRUE(X.match(n));
+	EXPECT_EQ("1", X.value());
+}
+
 //// ?- Y=1, X=Y.
 //// X=1
 //TEST(Variable, num1_to_varY_and_varX_match_varY) {
