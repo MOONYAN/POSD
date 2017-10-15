@@ -1,5 +1,8 @@
 #include <gtest/gtest.h>
 #include "utTerm.h"
+#include "utStruct.h"
+#include "utVariable.h"
+#include "utProxy.h"
 
 int main(int argc, char** argv)
 {

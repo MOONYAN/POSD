@@ -1,6 +1,7 @@
 #pragma once
 #include "Term.h"
 #include <string>
+#include <sstream>
 
 class Number : public Term
 {
@@ -8,6 +9,7 @@ private:
 	string _symbol;
 public:
 	Number(int number);
+	Number(double number);
 	~Number();
 
 	// Inherited via Term

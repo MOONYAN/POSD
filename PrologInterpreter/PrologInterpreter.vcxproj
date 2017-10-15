@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -124,14 +124,21 @@
   <ItemGroup>
     <ClCompile Include="Atom.cpp" />
     <ClCompile Include="Number.cpp" />
+    <ClCompile Include="Proxy.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Struct.cpp" />
     <ClCompile Include="Variable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Atom.h" />
     <ClInclude Include="Number.h" />
+    <ClInclude Include="Proxy.h" />
+    <ClInclude Include="Struct.h" />
     <ClInclude Include="Term.h" />
+    <ClInclude Include="utProxy.h" />
+    <ClInclude Include="utStruct.h" />
     <ClInclude Include="utTerm.h" />
+    <ClInclude Include="utVariable.h" />
     <ClInclude Include="Variable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

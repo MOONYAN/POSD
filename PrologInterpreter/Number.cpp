@@ -5,6 +5,13 @@ Number::Number(int number)
 	_symbol = std::to_string(number);
 }
 
+Number::Number(double number)
+{
+	stringstream ss;
+	ss << number;
+	ss >> _symbol;
+}
+
 Number::~Number()
 {
 }
