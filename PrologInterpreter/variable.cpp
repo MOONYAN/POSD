@@ -118,18 +118,17 @@ string Variable::symbol()
 
 string Variable::value()
 {
-	string result = this->_symbol;
-	if (!canAssign())
-	{
-		result = _proxyTerm->value();
-	}
-	return result;
+	_proxy = this->proxy();
+	if (_proxy == NULL)
+		return this->symbol();
+	else
+		return _proxy->value();
 }
 
 bool Variable::match(Term& other)
 {
 	bool result = true;
-	if (canAssign())
+	if (assignable())
 	{
 		_proxyTerm = &other;
 	}
