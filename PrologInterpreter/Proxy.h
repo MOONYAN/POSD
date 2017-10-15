@@ -4,12 +4,13 @@
 class Proxy
 {
 private:
-	string _proxyValue;
+	string _dirtyValue;
 	Term* _proxyTerm = NULL;
 	Proxy* _next = NULL;
 public:
-	Proxy(string proxyValue);
+	Proxy(string dirtyValue);
 	~Proxy();
+	void setDirtyValue(string dirtyValue);
 	string value();
 };
 
