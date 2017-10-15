@@ -143,10 +143,5 @@ bool Variable::match(Term& other)
 
 bool Variable::tryAssign(Term& other)
 {
-	bool result = (canAssign());
-	if (result)
-	{
-		_proxyTerm = &other;
-	}
-	return result;
+	return this->match(other);
 }
