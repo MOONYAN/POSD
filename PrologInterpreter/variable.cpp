@@ -24,8 +24,8 @@ void copyNodeToOther(Variable* self, Variable* other)
 
 bool doMatchTerm(Variable* self, Variable* other)
 {
-	Term* selfTerm = self->proxyTem();
-	Term* otherTerm = other->proxyTem();
+	Term* selfTerm = self->proxyTerm();
+	Term* otherTerm = other->proxyTerm();
 	return selfTerm->match(*other);
 }
 
@@ -73,21 +73,39 @@ bool Variable::match(Variable & other)
 
 bool Variable::assignable()
 {
+	_proxy = this->proxy();
+	bool result = (_proxy == NULL);
+	if (!result)
+	{
+		result = _proxy->assignable();
+	}
 	return false;
 }
 
 Proxy * Variable::proxy()
 {
+	if (_proxy != NULL)
+	{
+		_proxy = _proxy->getTailProxy();
+	}
 	return _proxy;
 }
 
 void Variable::setProxy(Proxy * node)
 {
+	_proxy = this->proxy();
+	_proxy->setTailProxy(node);
 }
 
-Term * Variable::proxyTem()
+Term * Variable::proxyTerm()
 {
-	return nullptr;
+	Term * result = NULL;
+	_proxy = this->proxy();
+	if (_proxy != NULL)
+	{
+		result = _proxy->getProxyTerm();
+	}
+	return result;
 }
 
 string Variable::symbol()

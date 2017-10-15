@@ -11,6 +11,10 @@ public:
 	Proxy(string dirtyValue);
 	~Proxy();
 	void setDirtyValue(string dirtyValue);
+	bool assignable();
+	Proxy* getTailProxy();
+	void setTailProxy(Proxy* node);
+	Term* getProxyTerm();
 	string value();
 };
 

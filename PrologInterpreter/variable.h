@@ -15,7 +15,7 @@ public:
 	bool assignable();
 	Proxy* proxy();
 	void setProxy(Proxy* node);
-	Term* proxyTem();
+	Term* proxyTerm();
 
 	// Inherited via Term
 	virtual string symbol() override;
