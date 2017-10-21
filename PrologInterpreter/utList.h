@@ -148,13 +148,23 @@ TEST(List, matchToVarToAtominListShouldSucceed) {
 	ASSERT_TRUE(list.match(list2));
 }
 
-//// ?- Y = [496, X, terence_tao], X = alan_mathison_turing.
-//// Y = [496, alan_mathison_turing, terence_tao],
-//// X = alan_mathison_turing.
-//TEST(List, matchVarinListToAtomShouldSucceed) {
-//
-//}
-//
+// ?- Y = [496, X, terence_tao], X = alan_mathison_turing.
+// Y = [496, alan_mathison_turing, terence_tao],
+// X = alan_mathison_turing.
+TEST(List, matchVarinListToAtomShouldSucceed) {
+	Variable Y("Y");
+	Variable X("X");
+	Number n(496);
+	Atom terence_tao("terence_tao");
+	vector<Term*> v = { &n, &X, &terence_tao };
+	List list(v);
+	Atom alan_mathison_turing("alan_mathison_turing");
+	ASSERT_TRUE(Y.match(list));
+	ASSERT_TRUE(X.match(alan_mathison_turing));
+	EXPECT_EQ("[496, alan_mathison_turing, terence_tao]", Y.value());
+	EXPECT_EQ("alan_mathison_turing", X.value());
+}
+
 // Example: 
 // ?- [first, second, third] = [H|T].
 // H = first, T = [second, third].
