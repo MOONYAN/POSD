@@ -42,7 +42,9 @@ string List::value()
 
 bool List::match(Term & other)
 {
-	return false;
+	bool result = other.tryAssign(*this);
+	result = (this->value() == other.value());
+	return result;
 }
 
 bool List::tryAssign(Term & other)
