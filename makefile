@@ -1,15 +1,13 @@
 INC_DIR = PrologInterpreter
-Target = hw3
+Target = hw4
 
 all: copyFirst compiler
 
 copyFirst:
 ifeq (${OS}, Windows_NT)
 	copy *.h ${INC_DIR} || : /y
-#	g++ -E ${INC_DIR}/utTerm.h
 else
 	cp *.h ${INC_DIR} || :
-#	g++ -E ${INC_DIR}/utTerm.h
 endif
 
 compiler:
