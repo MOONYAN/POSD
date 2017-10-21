@@ -230,9 +230,17 @@ TEST(List, emptyExecptionOfHead) {
 	}
 }
 
-//// Given there is a empty list
-//// When client still want to get the head of list
-//// Then it should throw a string: "Accessing tail in an empty list" as an exception.
-//TEST(List, emptyExecptionOfTail) {
-//
-//}
+// Given there is a empty list
+// When client still want to get the head of list
+// Then it should throw a string: "Accessing tail in an empty list" as an exception.
+TEST(List, emptyExecptionOfTail) {
+	List list;
+	try
+	{
+		Term* tail = list.tail();
+	}
+	catch (string err)
+	{
+		EXPECT_EQ(err, "Accessing head in an empty list");
+	}
+}
