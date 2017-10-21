@@ -2,6 +2,8 @@
 
 Term * List::head() const
 {
+	if (_elements.empty())
+		throw string("Accessing head in an empty list");
 	return _elements[0];
 }
 
