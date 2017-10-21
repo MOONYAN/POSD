@@ -123,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom.cpp" />
+    <ClCompile Include="List.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="Proxy.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -131,10 +132,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Atom.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="Proxy.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="Term.h" />
+    <ClInclude Include="utList.h" />
     <ClInclude Include="utProxy.h" />
     <ClInclude Include="utStruct.h" />
     <ClInclude Include="utTerm.h" />
