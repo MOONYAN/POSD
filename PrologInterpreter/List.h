@@ -1,6 +1,7 @@
 #pragma once
 #include "Term.h"
 #include <vector>
+#include <sstream>
 
 class List : public Term 
 {
