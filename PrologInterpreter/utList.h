@@ -71,12 +71,20 @@ TEST(List, matchToNumberShouldFail) {
 	ASSERT_FALSE(n1.match(list));
 }
 
-//// ?- s(X) = [496, X, terence_tao].
-//// false.
-//TEST(List, matchToStructShouldFail) {
-//
-//}
-//
+// ?- s(X) = [496, X, terence_tao].
+// false.
+TEST(List, matchToStructShouldFail) {
+	Variable X("X");
+	Number n(496);
+	Atom terence_tao("terence_tao");
+	vector<Term*> v = { &n, &X, &terence_tao };
+	List list(v);
+	vector<Term*> v2 = { &X };
+	Atom name("s");
+	Struct s(name, v2);
+	ASSERT_FALSE(s.match(list));
+}
+
 //// ?- Y = [496, X, terence_tao].
 //// Y = [496, X, terence_tao].
 //TEST(List, matchToVarShouldSucceed) {
