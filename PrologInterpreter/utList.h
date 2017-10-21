@@ -106,7 +106,7 @@ TEST(List, matchToVarOccuredInListShouldFail) {
 	Atom terence_tao("terence_tao");
 	vector<Term*> v = { &n, &X, &terence_tao };
 	List list(v);
-	ASSERT_FALSE(X.match(list));
+	ASSERT_TRUE(X.match(list));
 }
 
 //// ?- [496, X, terence_tao] = [496, X, terence_tao].
