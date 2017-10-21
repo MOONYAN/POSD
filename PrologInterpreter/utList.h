@@ -47,12 +47,18 @@ TEST(List, Vars) {
 	ASSERT_EQ("[X, Y]", list.symbol());
 }
 
-//// ?- tom = [496, X, terence_tao].
-//// false.
-//TEST(List, matchToAtomShouldFail) {
-//
-//}
-//
+// ?- tom = [496, X, terence_tao].
+// false.
+TEST(List, matchToAtomShouldFail) {
+	Atom tom("tom");
+	Number n(496);
+	Variable X("X");
+	Atom terence_tao("terence_tao");
+	vector<Term*> v = { &n, &X, &terence_tao };
+	List list(v);
+	ASSERT_FALSE(tom.match(list));
+}
+
 //// ?- 8128 = [496, X, terence_tao].
 //// false.
 //TEST(List, matchToNumberShouldFail) {
