@@ -215,13 +215,21 @@ TEST(List, headAndTailMatching4) {
 	ASSERT_EQ("[second, third]", list.tail()->value());
 }
 
-//// Given there is a empty list
-//// When client still want to get the head of list
-//// Then it should throw a string: "Accessing head in an empty list" as an exception.
-//TEST(List, emptyExecptionOfHead) {
-//
-//}
-//
+// Given there is a empty list
+// When client still want to get the head of list
+// Then it should throw a string: "Accessing head in an empty list" as an exception.
+TEST(List, emptyExecptionOfHead) {
+	List list;
+	try
+	{
+		Term* head = list.head();
+	}
+	catch (string err)
+	{
+		EXPECT_EQ(err, "Accessing head in an empty list");
+	}
+}
+
 //// Given there is a empty list
 //// When client still want to get the head of list
 //// Then it should throw a string: "Accessing tail in an empty list" as an exception.
