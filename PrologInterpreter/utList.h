@@ -8,12 +8,13 @@ using std::string;
 #include "Number.h"
 #include "Variable.h"
 
-//// When create a new list without any item
-//// Then #symbol() of the list should return "[]"
-//TEST(List, constructor) {
-//
-//}
-//
+// When create a new list without any item
+// Then #symbol() of the list should return "[]"
+TEST(List, constructor) {
+	List list;
+	ASSERT_EQ("[]", list.symbol());
+}
+
 //// Given there are two perfect numbers: 8128
 //// When create a new list with the perfect Number
 //// Then #symbol() of the list should return "[8128]"

@@ -14,7 +14,16 @@ List * List::tail() const
 
 string List::symbol()
 {
-	return string();
+	stringstream ss;
+	ss << "[";
+	for (int i = 0, maxpos = _elements.size() - 1; i <= maxpos; i++)
+	{
+		ss << _elements[i]->symbol();
+		if (i != maxpos)
+			ss << ", ";
+	}
+	ss << "]";
+	return ss.str();
 }
 
 string List::value()
