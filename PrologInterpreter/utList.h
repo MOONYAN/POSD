@@ -25,13 +25,17 @@ TEST(List, Numbers) {
 	ASSERT_EQ("[8128]", list.symbol());
 }
 
-//// Given there are two atoms: "terence_tao", "alan_mathison_turing"
-//// When create a new list with the Atoms
-//// Then #symbol() of the list should return "[terence_tao, alan_mathison_turing]"
-//TEST(List, Atoms) {
-//
-//}
-//
+// Given there are two atoms: "terence_tao", "alan_mathison_turing"
+// When create a new list with the Atoms
+// Then #symbol() of the list should return "[terence_tao, alan_mathison_turing]"
+TEST(List, Atoms) {
+	Atom terence_tao("terence_tao");
+	Atom alan_mathison_turing("alan_mathison_turing");
+	vector<Term*> v = { &terence_tao,&alan_mathison_turing };
+	List list(v);
+	ASSERT_EQ("[terence_tao, alan_mathison_turing]", list.symbol());
+}
+
 //// Given there are two variables: X, Y
 //// When create a new list with the variables
 //// Then #symbol() of the list should return "[X, Y]"
