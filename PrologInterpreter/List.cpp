@@ -12,6 +12,31 @@ List * List::tail() const
 	return subList;
 }
 
+bool List::match(List & other)
+{
+	int childCount = this->getChildCount();
+	if (childCount != other.getChildCount())
+	{
+		return false;
+	}
+	else
+	{
+		for (int i = 0; i < childCount; i++)
+		{
+			if (!_elements[i]->match(*other._elements[i]))
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+int List::getChildCount()
+{
+	return _elements.size();
+}
+
 string List::symbol()
 {
 	stringstream ss;

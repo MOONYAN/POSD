@@ -12,6 +12,8 @@ public:
 	List(vector<Term *> const & elements) :_elements(elements) {}
 	Term * head() const;
 	List * tail() const;
+	bool match(List & other);
+	int getChildCount();
 
 	// Inherited via Term
 	virtual string symbol() override;
