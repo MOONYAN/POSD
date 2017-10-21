@@ -189,12 +189,20 @@ TEST(List, headAndTailMatching2) {
 	EXPECT_EQ(string("[third]"), l.tail()->tail()->value());
 }
 
-//// ?- [[first], second, third] = [H|T].
-//// H = first, T = [[second], third].
-//TEST(List, headAndTailMatching3) {
-//
-//}
-//
+// ?- [[first], second, third] = [H|T].
+// H = [first], T = [second, third].
+TEST(List, headAndTailMatching3) {
+	Atom first("first");
+	Atom second("second");
+	Atom third("third");
+	vector<Term *> v1 = { &first };
+	List list(v1);
+	vector<Term *> v2 = { &list,&second,&third };
+	List list2(v2);
+	ASSERT_EQ("[first]", list2.head()->value());
+	ASSERT_EQ("[second, third]",list2.tail()->value());
+}
+
 //// ?- [first, second, third] = [first, second, H|T].
 //// H = third, T = [].
 //TEST(List, headAndTailMatching4) {
