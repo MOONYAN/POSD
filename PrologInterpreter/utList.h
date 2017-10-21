@@ -200,15 +200,21 @@ TEST(List, headAndTailMatching3) {
 	vector<Term *> v2 = { &list,&second,&third };
 	List list2(v2);
 	ASSERT_EQ("[first]", list2.head()->value());
-	ASSERT_EQ("[second, third]",list2.tail()->value());
+	ASSERT_EQ("[second, third]", list2.tail()->value());
 }
 
-//// ?- [first, second, third] = [first, second, H|T].
-//// H = third, T = [].
-//TEST(List, headAndTailMatching4) {
-//
-//}
-//
+// ?- [first, second, third] = [first, second, H|T].
+// H = third, T = [].
+TEST(List, headAndTailMatching4) {
+	Atom first("first");
+	Atom second("second");
+	Atom third("third");
+	vector<Term *> v = { &first,&second,&third };
+	List list(v);
+	ASSERT_EQ("first", list.head()->value());
+	ASSERT_EQ("[second, third]", list.tail()->value());
+}
+
 //// Given there is a empty list
 //// When client still want to get the head of list
 //// Then it should throw a string: "Accessing head in an empty list" as an exception.
