@@ -9,6 +9,8 @@ Term * List::head() const
 
 List * List::tail() const
 {
+	if (_elements.empty())
+		throw string("Accessing head in an empty list");
 	vector<Term *> args(_elements.begin() + 1, _elements.end());
 	List* subList = new List(args);
 	return subList;
