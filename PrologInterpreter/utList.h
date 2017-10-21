@@ -36,13 +36,17 @@ TEST(List, Atoms) {
 	ASSERT_EQ("[terence_tao, alan_mathison_turing]", list.symbol());
 }
 
-//// Given there are two variables: X, Y
-//// When create a new list with the variables
-//// Then #symbol() of the list should return "[X, Y]"
-//TEST(List, Vars) {
-//
-//}
-//
+// Given there are two variables: X, Y
+// When create a new list with the variables
+// Then #symbol() of the list should return "[X, Y]"
+TEST(List, Vars) {
+	Variable X("X");
+	Variable Y("Y");
+	vector<Term*> v = { &X,&Y };
+	List list(v);
+	ASSERT_EQ("[X, Y]", list.symbol());
+}
+
 //// ?- tom = [496, X, terence_tao].
 //// false.
 //TEST(List, matchToAtomShouldFail) {
