@@ -15,13 +15,16 @@ TEST(List, constructor) {
 	ASSERT_EQ("[]", list.symbol());
 }
 
-//// Given there are two perfect numbers: 8128
-//// When create a new list with the perfect Number
-//// Then #symbol() of the list should return "[8128]"
-//TEST(List, Numbers) {
-//
-//}
-//
+// Given there are two perfect numbers: 8128
+// When create a new list with the perfect Number
+// Then #symbol() of the list should return "[8128]"
+TEST(List, Numbers) {
+	Number n(8128);
+	vector<Term*> v = { &n };
+	List list(v);
+	ASSERT_EQ("[8128]", list.symbol());
+}
+
 //// Given there are two atoms: "terence_tao", "alan_mathison_turing"
 //// When create a new list with the Atoms
 //// Then #symbol() of the list should return "[terence_tao, alan_mathison_turing]"
