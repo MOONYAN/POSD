@@ -85,12 +85,19 @@ TEST(List, matchToStructShouldFail) {
 	ASSERT_FALSE(s.match(list));
 }
 
-//// ?- Y = [496, X, terence_tao].
-//// Y = [496, X, terence_tao].
-//TEST(List, matchToVarShouldSucceed) {
-//
-//}
-//
+// ?- Y = [496, X, terence_tao].
+// Y = [496, X, terence_tao].
+TEST(List, matchToVarShouldSucceed) {
+	Variable X("X");
+	Number n(496);
+	Atom terence_tao("terence_tao");
+	vector<Term*> v = { &n, &X, &terence_tao };
+	List list(v);
+	Variable Y("Y");
+	ASSERT_TRUE(Y.match(list));
+	EXPECT_EQ("[496, X, terence_tao]", Y.value());
+}
+
 //// ?- X = [496, X, terence_tao].
 //// false.
 //TEST(List, matchToVarOccuredInListShouldFail) {
