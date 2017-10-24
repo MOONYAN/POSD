@@ -228,10 +228,6 @@ TEST(List, emptyExecptionOfHead) {
 	{
 		EXPECT_EQ(err, "Accessing head in an empty list");
 	}
-	catch (...)
-	{
-		ASSERT_FALSE(true);
-	}
 }
 
 // Given there is a empty list
@@ -246,9 +242,5 @@ TEST(List, emptyExecptionOfTail) {
 	catch (string err)
 	{
 		EXPECT_EQ(err, "Accessing tail in an empty list");
-	}
-	catch (...)
-	{
-		ASSERT_FALSE(true);
 	}
 }
