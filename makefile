@@ -6,8 +6,10 @@ all: copyFirst compiler
 copyFirst:
 ifeq (${OS}, Windows_NT)
 	copy *.h ${INC_DIR} || : /y
+#
 else
 	cp *.h ${INC_DIR} || :
+#
 endif
 
 compiler:
