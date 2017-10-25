@@ -18,6 +18,37 @@ Term * Struct::args(int index)
 	return _childs[index];
 }
 
+bool Struct::match(Struct & other)
+{
+	int childCount = this->getChildCount();
+	if (!this->name().match(other.name()))
+	{
+		return false;
+
+	}
+	else if (childCount != other.getChildCount())
+	{
+		return false;
+	}
+	else
+	{
+		for (int i = 0; i < childCount; i++)
+		{
+			bool result = _childs[i]->match(*other._childs[i]);
+			if (!_childs[i]->match(*other._childs[i]))
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+int Struct::getChildCount()
+{
+	return _childs.size();
+}
+
 string Struct::symbol()
 {
 	stringstream ss;
