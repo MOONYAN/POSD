@@ -29,11 +29,6 @@ bool doMatchTerm(Variable* self, Variable* other)
 	return selfTerm->match(*other);
 }
 
-bool Variable::canAssign()
-{
-	return _proxyTerm == this;
-}
-
 Variable::Variable(string symbol)
 {
 	_symbol = symbol;

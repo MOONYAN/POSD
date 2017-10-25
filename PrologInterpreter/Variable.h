@@ -5,8 +5,6 @@ class Variable : public Term
 {
 private:
 	string _symbol;
-	Term* _proxyTerm = this;
-	bool canAssign();
 	Proxy* _proxy = NULL;
 public:
 	Variable(string symbol);
