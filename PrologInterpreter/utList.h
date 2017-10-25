@@ -244,3 +244,15 @@ TEST(List, emptyExecptionOfTail) {
 		EXPECT_EQ(err, "Accessing tail in an empty list");
 	}
 }
+
+// ?- [X] = [X].
+// true.
+TEST(List, matchToSameListWithX) {
+	Variable X("X");
+	Number n(496);
+	Atom terence_tao("terence_tao");
+	vector<Term*> v = { &X };
+	List list(v);
+	ASSERT_TRUE(list.match(list));	
+	ASSERT_TRUE(list.match(list));
+}

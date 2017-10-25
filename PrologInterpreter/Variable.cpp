@@ -131,16 +131,19 @@ string Variable::value()
 bool Variable::match(Term& other)
 {
 	bool result = true;
-	if (assignable())
+	if (this->value() != other.value())
 	{
-		Proxy* node = new Proxy(&other);
-		this->setProxy(node);
-	}
-	else
-	{
-		Term* proxyTerm = this->proxyTerm();
-		result = proxyTerm->match(other);
-	}
+		if (assignable())
+		{
+			Proxy* node = new Proxy(&other);
+			this->setProxy(node);
+		}
+		else
+		{
+			Term* proxyTerm = this->proxyTerm();
+			result = proxyTerm->match(other);
+		}
+	}	
 	return result;
 }
 

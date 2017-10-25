@@ -27,6 +27,7 @@ bool List::match(List & other)
 	{
 		for (int i = 0; i < childCount; i++)
 		{
+			bool result = _elements[i]->match(*other._elements[i]);
 			if (!_elements[i]->match(*other._elements[i]))
 			{
 				return false;
