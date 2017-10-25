@@ -254,6 +254,5 @@ TEST(List, matchToSameListWithX) {
 	vector<Term*> v = { &X };
 	List list(v);
 	ASSERT_TRUE(list.match(list));	
-	bool again = list.match(list);
-	//ASSERT_TRUE(list.match(list));
+	ASSERT_TRUE(list.match(list));
 }
