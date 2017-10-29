@@ -2,11 +2,23 @@
 
 
 
-Scanner::Scanner()
+Scanner::Scanner(string inputString) :_inputString(inputString)
 {
 }
 
 
 Scanner::~Scanner()
 {
+}
+
+Leaf * Scanner::getNextLeaf()
+{
+	Leaf* leaf = NULL;
+	smatch sm;
+	regex variableRegex("^[A-Z_][A-Za-z0-9_]*");
+	if (regex_search(_inputString, sm, variableRegex)) {
+		leaf = new Leaf("Variable", sm.str());
+		_inputString = sm.suffix();
+	}
+	return leaf;
 }
