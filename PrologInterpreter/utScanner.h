@@ -17,3 +17,20 @@ TEST(Scanner, Var)
 	doAssert("__1ab");
 	doAssert("__");
 }
+
+TEST(Scanner, Atom)
+{
+	auto doAssert = [](string inputAtom) {
+		Scanner scanner(inputAtom);
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ("Atom", leaf->getTokenType());
+		ASSERT_EQ(inputAtom, leaf->getTokenValue());
+	};
+	doAssert("xX");
+	doAssert("xXyz");
+	doAssert("x_xyZ");
+	doAssert("x_XyZ");
+	doAssert("x_123_");
+	doAssert("x__1ab");
+	doAssert("x__");
+}
