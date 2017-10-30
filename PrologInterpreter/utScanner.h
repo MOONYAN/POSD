@@ -240,3 +240,18 @@ TEST(Scanner, VarMatchListWithStruct)
 		doAssert(value);
 	}
 }
+
+//X = [ father(tom, sam), mother(merry, leo) ]
+TEST(Scanner, RemoveSpace)
+{
+	Scanner scanner("X = [ father(tom, sam), mother(merry, leo) ]");
+	auto doAssert = [&](string expectValue) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	auto result = { "X","=","[","father","(","tom",",","sam",")",",","mother","(","merry",",","leo",")","]" };
+	for each (auto value in result)
+	{
+		doAssert(value);
+	}
+}
