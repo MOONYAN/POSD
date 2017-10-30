@@ -17,4 +17,5 @@ TEST(Leaf, construct)
 	doAssert("ListEnd", "]");
 	doAssert("StructBegin", "(");
 	doAssert("StructEnd", ")");
+	doAssert("EndOfString", "");
 }

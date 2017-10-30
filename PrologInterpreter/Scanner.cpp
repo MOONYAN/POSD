@@ -13,7 +13,7 @@ Scanner::~Scanner()
 
 Leaf * Scanner::getNextLeaf()
 {
-	Leaf* leaf = NULL ;
+	Leaf* leaf = NULL;
 	smatch sm;
 
 	for each (auto pair in _regexMap)
@@ -38,5 +38,6 @@ map<string, regex> Scanner::_regexMap = {
 	{ "ListBegin", regex({ "^\\[" }) },
 	{ "ListEnd", regex({ "^\\]" }) },
 	{ "StructBegin", regex({ "^\\(" }) },
-	{ "StructEnd", regex({ "^\\)" }) }
+	{ "StructEnd", regex({ "^\\)" }) },
+	{ "EndOfString", regex({ "^$" }) }
 };

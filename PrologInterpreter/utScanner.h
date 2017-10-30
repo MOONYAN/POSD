@@ -71,4 +71,5 @@ TEST(Scanner, keywords)
 	doAssert("]", "ListEnd");
 	doAssert("(", "StructBegin");
 	doAssert(")", "StructEnd");
+	doAssert("", "EndOfString");
 }
