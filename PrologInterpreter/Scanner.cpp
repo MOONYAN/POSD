@@ -15,8 +15,12 @@ Leaf * Scanner::getNextLeaf()
 {
 	Leaf* leaf = NULL;
 	smatch sm;
-	regex variableRegex("^[A-Z_][A-Za-z0-9_]*");
-	regex atomRegex("^[a-z_][A-Za-z0-9_]*");
+	//^[A-Z_]\w*
+	regex variableRegex({ "^[A-Z_]\\w*" });
+	//^[a-z]\w*
+	regex atomRegex({ "^[a-z]\\w*" });
+	//^(\+|-)?(\d+(\.\d+)?)
+	regex numberRegex({ "^(\\+|-)?(\\d+(\\.\\d+)?)" });
 	if (regex_search(_inputString, sm, variableRegex)) {
 		leaf = new Leaf("Variable", sm.str());
 		_inputString = sm.suffix();
@@ -24,6 +28,11 @@ Leaf * Scanner::getNextLeaf()
 	else if (regex_search(_inputString, sm, atomRegex))
 	{
 		leaf = new Leaf("Atom", sm.str());
+		_inputString = sm.suffix();
+	}
+	else if (regex_search(_inputString, sm, numberRegex))
+	{
+		leaf = new Leaf("Number", sm.str());
 		_inputString = sm.suffix();
 	}
 	return leaf;

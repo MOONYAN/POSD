@@ -34,3 +34,25 @@ TEST(Scanner, Atom)
 	doAssert("x__1ab");
 	doAssert("x__");
 }
+
+TEST(Scanner, Number)
+{
+	auto doAssert = [](string inputNumber, string expectNumber) {
+		Scanner scanner(inputNumber);
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ("Number", leaf->getTokenType());
+		ASSERT_EQ(expectNumber, leaf->getTokenValue());
+	};
+	doAssert("0", "0");
+	doAssert("0.1", "0.1");
+	doAssert("123.4567", "123.4567");
+	//doAssert("-0", "0");
+	//doAssert("-0.1", "-0.1");
+	//doAssert("-123.4567", "-123.4567");
+	//doAssert("+0", "0");
+	//doAssert("+0.1", "0.1");
+	//doAssert("+123.4567", "123.4567");
+	//doAssert("0123", "123");
+	//doAssert("0010", "10");
+	//doAssert("0.1000", "0.1");
+}
