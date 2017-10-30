@@ -56,3 +56,19 @@ TEST(Scanner, Number)
 	//doAssert("0010", "10");
 	//doAssert("0.1000", "0.1");
 }
+
+TEST(Scanner, keywords)
+{
+	auto doAssert = [](string inputstring, string expectType) {
+		Scanner scanner(inputstring);
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectType, leaf->getTokenType());
+		ASSERT_EQ(inputstring, leaf->getTokenValue());
+	};
+	doAssert(",", "Comma");
+	doAssert("=", "Match");
+	doAssert("[", "ListBegin");
+	doAssert("]", "ListEnd");
+	doAssert("(", "StructBegin");
+	doAssert(")", "StructEnd");
+}
