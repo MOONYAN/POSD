@@ -12,12 +12,12 @@ TEST(ParserTest, createTerm_Var) {
 	ASSERT_EQ("X", parser.createTerm()->symbol());
 }
 
-//TEST(ParserTest, createTerm_Num) {
-//	Scanner scanner("123");
-//	Parser parser(scanner);
-//	ASSERT_EQ("123", parser.createTerm()->symbol());
-//}
-//
+TEST(ParserTest, createTerm_Num) {
+	Scanner scanner("123");
+	Parser parser(scanner);
+	ASSERT_EQ("123", parser.createTerm()->symbol());
+}
+
 //TEST(ParserTest, createTerm_Atom)
 //{
 //	Scanner scanner("tom");

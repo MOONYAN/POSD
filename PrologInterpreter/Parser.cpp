@@ -17,5 +17,9 @@ Term * Parser::createTerm()
 	{
 		term = new Variable(leaf->getTokenValue());
 	}
+	else if (leaf->getTokenType() == "Number")
+	{
+		term = new Number(leaf->getTokenValue());
+	}
 	return term;
 }

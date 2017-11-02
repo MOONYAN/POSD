@@ -2,6 +2,7 @@
 #include "Scanner.h"
 #include "Term.h"
 #include "Variable.h"
+#include "Number.h"
 
 class Parser
 {
