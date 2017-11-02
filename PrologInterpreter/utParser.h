@@ -18,13 +18,13 @@ TEST(ParserTest, createTerm_Num) {
 	ASSERT_EQ("123", parser.createTerm()->symbol());
 }
 
-//TEST(ParserTest, createTerm_Atom)
-//{
-//	Scanner scanner("tom");
-//	Parser parser(scanner);
-//	ASSERT_EQ("tom", parser.createTerm()->symbol());
-//}
-//
+TEST(ParserTest, createTerm_Atom)
+{
+	Scanner scanner("tom");
+	Parser parser(scanner);
+	ASSERT_EQ("tom", parser.createTerm()->symbol());
+}
+
 //TEST(ParserTest, createArgs)
 //{
 //	Scanner scanner("1, X, tom");

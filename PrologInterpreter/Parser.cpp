@@ -21,5 +21,9 @@ Term * Parser::createTerm()
 	{
 		term = new Number(leaf->getTokenValue());
 	}
+	else if (leaf->getTokenType() == "Atom")
+	{
+		term = new Atom(leaf->getTokenValue());
+	}
 	return term;
 }

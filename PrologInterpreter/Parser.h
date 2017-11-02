@@ -3,6 +3,7 @@
 #include "Term.h"
 #include "Variable.h"
 #include "Number.h"
+#include "Atom.h"
 
 class Parser
 {
