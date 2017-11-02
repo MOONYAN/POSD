@@ -6,12 +6,12 @@
 #include "Variable.h"
 #include "Number.h"
 
-//TEST(ParserTest, createTerm_Var) {
-//	Scanner scanner("X");
-//	Parser parser(scanner);
-//	ASSERT_EQ("X", parser.createTerm()->symbol());
-//}
-//
+TEST(ParserTest, createTerm_Var) {
+	Scanner scanner("X");
+	Parser parser(scanner);
+	ASSERT_EQ("X", parser.createTerm()->symbol());
+}
+
 //TEST(ParserTest, createTerm_Num) {
 //	Scanner scanner("123");
 //	Parser parser(scanner);
