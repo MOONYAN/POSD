@@ -4,6 +4,8 @@
 #include "Variable.h"
 #include "Number.h"
 #include "Atom.h"
+#include "Struct.h"
+#include <vector>
 
 class Parser
 {
@@ -13,5 +15,6 @@ public:
 	Parser(Scanner& scanner);
 	~Parser();
 	Term* createTerm();
+	vector<Term*> getArgs();
 };
 

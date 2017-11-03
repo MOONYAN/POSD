@@ -25,23 +25,23 @@ TEST(ParserTest, createTerm_Atom)
 	ASSERT_EQ("tom", parser.createTerm()->symbol());
 }
 
-//TEST(ParserTest, createArgs)
-//{
-//	Scanner scanner("1, X, tom");
-//	Parser parser(scanner);
-//	vector<Term*> terms = parser.getArgs();
-//	ASSERT_EQ("1", terms[0]->symbol());
-//	ASSERT_EQ("X", terms[1]->symbol());
-//	ASSERT_EQ("tom", terms[2]->symbol());
-//}
-//
-//TEST(ParserTest, createTerms)
-//{
-//	Scanner scanner("s(1, X, tom)");
-//	Parser parser(scanner);
-//	ASSERT_EQ("s(1, X, tom)", parser.createTerm()->symbol());
-//}
-//
+TEST(ParserTest, createArgs)
+{
+	Scanner scanner("1, X, tom");
+	Parser parser(scanner);
+	vector<Term*> terms = parser.getArgs();
+	ASSERT_EQ("1", terms[0]->symbol());
+	ASSERT_EQ("X", terms[1]->symbol());
+	ASSERT_EQ("tom", terms[2]->symbol());
+}
+
+TEST(ParserTest, createTerms)
+{
+	Scanner scanner("s(1, X, tom)");
+	Parser parser(scanner);
+	ASSERT_EQ("s(1, X, tom)", parser.createTerm()->symbol());
+}
+
 //
 //// Given there is string: " 12345,  tom" in scanner.
 //// When parser parses all terms via scanner.
