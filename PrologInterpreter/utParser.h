@@ -88,15 +88,17 @@ TEST(ParserTest, parseStructThreeArgs) {
 	ASSERT_EQ("point(1, X, z)", parser.createTerm()->symbol());
 }
 
-//
-//// Given there is string: "   [   ]" in scanner.
-//// When parser parses all terms via scanner.
-//// Then it should return a List.
-//// And #symbol() of List should return "[]".
-//TEST(ParserTest, parseListEmpty) {
-//
-//}
-//
+
+// Given there is string: "   [   ]" in scanner.
+// When parser parses all terms via scanner.
+// Then it should return a List.
+// And #symbol() of List should return "[]".
+TEST(ParserTest, parseListEmpty) {
+	Scanner scanner("   [   ]");
+	Parser parser(scanner);
+	ASSERT_EQ("[]", parser.createTerm()->symbol());
+}
+
 //
 //// Given there is string: "_date" in scanner.
 //// When parser parses all terms via scanner.
