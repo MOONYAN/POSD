@@ -211,16 +211,20 @@ TEST(ParserTest, ListAsStruct2) {
 }
 
 
-//// Given there is string: "s(s(s(s(1)))), b(1,2,3)" in scanner.
-//// When parser parses all terms via scanner.
-//// Then it should return two Struct.
-//// And #symbol() of the first Strcut should return "s(s(s(s(1))))".
-//// And #symbol() of the second Strcut should return "b(1, 2, 3)".
-//TEST(ParserTest, parseStructOfStructAllTheWay2) {
-//
-//}
-//
-//
+// Given there is string: "s(s(s(s(1)))), b(1,2,3)" in scanner.
+// When parser parses all terms via scanner.
+// Then it should return two Struct.
+// And #symbol() of the first Strcut should return "s(s(s(s(1))))".
+// And #symbol() of the second Strcut should return "b(1, 2, 3)".
+TEST(ParserTest, parseStructOfStructAllTheWay2) {
+	Scanner scanner("s(s(s(s(1)))), b(1,2,3)");
+	Parser parser(scanner);
+	vector<Term*> terms = parser.getArgs();
+	ASSERT_EQ("s(s(s(s(1))))", terms[0]->symbol());
+	ASSERT_EQ("b(1, 2, 3)", terms[1]->symbol());
+}
+
+
 //// Given there is string: "point()" in scanner.
 //// When parser parses all terms via scanner.
 //// Then it should return a Struct.
