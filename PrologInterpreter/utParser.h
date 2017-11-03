@@ -225,15 +225,18 @@ TEST(ParserTest, parseStructOfStructAllTheWay2) {
 }
 
 
-//// Given there is string: "point()" in scanner.
-//// When parser parses all terms via scanner.
-//// Then it should return a Struct.
-//// And #symbol() of Strcut should return "point()".
-//TEST(ParserTest, parseStructNoArg) {
-//
-//}
-//
-//
+// Given there is string: "point()" in scanner.
+// When parser parses all terms via scanner.
+// Then it should return a Struct.
+// And #symbol() of Strcut should return "point()".
+TEST(ParserTest, parseStructNoArg) {
+	Scanner scanner("point()");
+	Parser parser(scanner);
+	Struct* term = dynamic_cast<Struct*> (parser.createTerm());
+	ASSERT_EQ("point()", term->symbol());
+}
+
+
 //// Given there is string: " 12345,  tom,   Date" in scanner.
 //// When parser parses all terms via scanner.
 //// Then it should return three terms: "12345", "tom" and "Date".

@@ -56,11 +56,10 @@ string Struct::symbol()
 	for (int i = 0, maxpos = _childs.size() - 1; i <= maxpos; i++)
 	{
 		ss << _childs[i]->symbol();
-		if (i == maxpos)
-			ss << ")";
-		else
+		if (i < maxpos)
 			ss << ", ";
 	}
+	ss << ")";
 	return ss.str();
 }
 
@@ -71,11 +70,10 @@ string Struct::value()
 	for (int i = 0, maxpos = _childs.size() - 1; i <= maxpos; i++)
 	{
 		ss << _childs[i]->value();
-		if (i == maxpos)
-			ss << ")";
-		else
+		if (i < maxpos)
 			ss << ", ";
 	}
+	ss << ")";
 	return ss.str();
 }
 
