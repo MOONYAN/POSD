@@ -163,13 +163,22 @@ TEST(ParserTest, parseList) {
 	ASSERT_EQ("[1, 2]", parser.createTerm()->symbol());
 }
 
-//// Given there is string: "[1,2)" in scanner.
-//// When parser parses all terms via scanner.
-//// Then it should return a string: "unexpected token" as exception.
-//TEST(ParserTest, illegal1) {
-//
-//}
-//
+// Given there is string: "[1,2)" in scanner.
+// When parser parses all terms via scanner.
+// Then it should return a string: "unexpected token" as exception.
+TEST(ParserTest, illegal1) {
+	Scanner scanner("   [1,2)");
+	Parser parser(scanner);
+	try
+	{
+		parser.createTerm();
+	}
+	catch (string error)
+	{
+		ASSERT_EQ("unexpected token", error);
+	}
+}
+
 //// Given there is string: ".(1,[])" in scanner.
 //// When parser parses all terms via scanner.
 //// Then it should return a Struct which contains two terms.

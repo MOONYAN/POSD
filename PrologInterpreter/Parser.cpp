@@ -35,7 +35,10 @@ Term * Parser::createTerm()
 			_scanner->getNextLeaf();
 			term = new Struct(*atom, this->getArgs());
 			//expect )
-			_scanner->getNextLeaf();
+			if (_scanner->getNextLeaf()->getTokenType() != "StructEnd")
+			{
+				throw string("unexpected token");
+			}
 		}
 	}
 	else if (leaf->getTokenType() == "ListBegin")
@@ -43,7 +46,10 @@ Term * Parser::createTerm()
 		_scanner->getNextLeaf();
 		term = new List(this->getArgs());
 		//expect ]
-		_scanner->getNextLeaf();
+		if (_scanner->getNextLeaf()->getTokenType() != "ListEnd")
+		{
+			throw string("unexpected token");
+		}
 	}
 	return term;
 }
