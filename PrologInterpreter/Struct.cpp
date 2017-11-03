@@ -20,13 +20,13 @@ Term * Struct::args(int index)
 
 bool Struct::match(Struct & other)
 {
-	int childCount = this->getChildCount();
+	int childCount = this->arity();
 	if (!this->name().match(other.name()))
 	{
 		return false;
 
 	}
-	else if (childCount != other.getChildCount())
+	else if (childCount != other.arity())
 	{
 		return false;
 	}
@@ -44,7 +44,7 @@ bool Struct::match(Struct & other)
 	return true;
 }
 
-int Struct::getChildCount()
+int Struct::arity()
 {
 	return _childs.size();
 }

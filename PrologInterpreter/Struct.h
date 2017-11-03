@@ -15,7 +15,7 @@ public:
 	Atom name();
 	Term* args(int index);
 	bool match(Struct & other);
-	int getChildCount();
+	int arity();
 
 	// Inherited via Term
 	virtual string symbol() override;
