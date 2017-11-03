@@ -51,7 +51,7 @@ Leaf * Scanner::peekNextLeaf()
 
 map<string, regex> Scanner::_regexMap = {
 	{ "Variable", regex({ "^[A-Z_]\\w*" }) },
-	{ "Atom", regex({ "^[a-z]\\w*" }) },
+	{ "Atom", regex({ "^[.a-z][.a-zA-z0-9_]*" }) },
 	{ "Number", regex({ "^(\\+|-)?(\\d+(\\.\\d+)?)" }) },
 	{ "Comma", regex({ "^," }) },
 	{ "Match", regex({ "^=" }) },
