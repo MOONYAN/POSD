@@ -5,6 +5,7 @@
 #include "Number.h"
 #include "Atom.h"
 #include "Struct.h"
+#include "List.h"
 #include <vector>
 
 class Parser
