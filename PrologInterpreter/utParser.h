@@ -132,15 +132,17 @@ TEST(ParserTest, parseStructOfStructAllTheWay) {
 }
 
 
-//// Given there is string: "   [  [1], [] ]" in scanner.
-//// When parser parses all terms via scanner.
-//// Then it should return a List.
-//// And #symbol() of List should return "[[1], []]".
-//TEST(ParserTest, parseListOfLists) {
-//
-//}
-//
-//
+// Given there is string: "   [  [1], [] ]" in scanner.
+// When parser parses all terms via scanner.
+// Then it should return a List.
+// And #symbol() of List should return "[[1], []]".
+TEST(ParserTest, parseListOfLists) {
+	Scanner scanner("   [  [1], [] ]");
+	Parser parser(scanner);
+	ASSERT_EQ("[[1], []]", parser.createTerm()->symbol());
+}
+
+
 //// Given there is string: "   [  [1], [], s(s(1)) ]   " in scanner.
 //// When parser parses all terms via scanner.
 //// Then it should return a List.
