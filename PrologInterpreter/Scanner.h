@@ -15,4 +15,5 @@ public:
 	Scanner(string inputString);
 	~Scanner();
 	Leaf* getNextLeaf();
+	Leaf* peekNextLeaf();
 };
