@@ -77,15 +77,17 @@ TEST(ParserTest, listOfTermsTwoNumbers) {
 	ASSERT_EQ("67", terms[1]->symbol());
 }
 
-//
-//// Given there is string: "point(1, X, z)" in scanner.
-//// When parser parses all terms via scanner.
-//// Then it should return a Struct.
-//// And #symbol() of Strcut should return "point(1, X, z)".
-//TEST(ParserTest, parseStructThreeArgs) {
-//
-//}
-//
+
+// Given there is string: "point(1, X, z)" in scanner.
+// When parser parses all terms via scanner.
+// Then it should return a Struct.
+// And #symbol() of Strcut should return "point(1, X, z)".
+TEST(ParserTest, parseStructThreeArgs) {
+	Scanner scanner("point(1, X, z)");
+	Parser parser(scanner);
+	ASSERT_EQ("point(1, X, z)", parser.createTerm()->symbol());
+}
+
 //
 //// Given there is string: "   [   ]" in scanner.
 //// When parser parses all terms via scanner.
