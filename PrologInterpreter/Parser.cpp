@@ -38,6 +38,13 @@ Term * Parser::createTerm()
 			_scanner->getNextLeaf();
 		}
 	}
+	else if (leaf->getTokenType() == "ListBegin")
+	{
+		_scanner->getNextLeaf();
+		term = new List(this->getArgs());
+		//expect ]
+		_scanner->getNextLeaf();
+	}
 	return term;
 }
 

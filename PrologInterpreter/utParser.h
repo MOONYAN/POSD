@@ -88,15 +88,17 @@ TEST(ParserTest, parseStructThreeArgs) {
 	ASSERT_EQ("point(1, X, z)", parser.createTerm()->symbol());
 }
 
-//
-//// Given there is string: "   [   ]" in scanner.
-//// When parser parses all terms via scanner.
-//// Then it should return a List.
-//// And #symbol() of List should return "[]".
-//TEST(ParserTest, parseListEmpty) {
-//
-//}
-//
+
+// Given there is string: "   [   ]" in scanner.
+// When parser parses all terms via scanner.
+// Then it should return a List.
+// And #symbol() of List should return "[]".
+TEST(ParserTest, parseListEmpty) {
+	Scanner scanner("   [   ]");
+	Parser parser(scanner);
+	ASSERT_EQ("[]", parser.createTerm()->symbol());
+}
+
 //
 //// Given there is string: "_date" in scanner.
 //// When parser parses all terms via scanner.
@@ -161,7 +163,7 @@ TEST(ParserTest, parseStructThreeArgs) {
 //// Then it should return a Struct which contains two terms.
 //// And #arity() of the Struct should be 2.
 //// And #symbol() of Struct should return ".(1, [])".
-//// And the first term should be number: "1", the second term should be another Strcut: "[]".
+//// And the first term should be number: "1", the second term should be another List: "[]".
 //TEST(ParserTest, ListAsStruct) {
 //
 //}
