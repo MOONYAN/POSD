@@ -194,17 +194,23 @@ TEST(ParserTest, ListAsStruct) {
 }
 
 
-//// Given there is string: ".(2,.(1,[]))" in scanner.
-//// When parser parses all terms via scanner.
-//// Then it should return a Struct which contains two terms.
-//// And #arity() of the Struct should be 2.
-//// And #symbol() of Struct should return ".(2, .(1, []))"
-//// And the first term should be number: "2", the second term should be another Strcut: ".(1, [])".
-//TEST(ParserTest, ListAsStruct2) {
-//
-//}
-//
-//
+// Given there is string: ".(2,.(1,[]))" in scanner.
+// When parser parses all terms via scanner.
+// Then it should return a Struct which contains two terms.
+// And #arity() of the Struct should be 2.
+// And #symbol() of Struct should return ".(2, .(1, []))"
+// And the first term should be number: "2", the second term should be another Strcut: ".(1, [])".
+TEST(ParserTest, ListAsStruct2) {
+	Scanner scanner(".(2,.(1,[]))");
+	Parser parser(scanner);
+	Struct* term = dynamic_cast<Struct*> (parser.createTerm());
+	ASSERT_EQ(2, term->arity());
+	ASSERT_EQ(".(2, .(1, []))", term->symbol());
+	ASSERT_EQ("2",term->args(0)->symbol());
+	ASSERT_EQ(".(1, [])", term->args(1)->symbol());
+}
+
+
 //// Given there is string: "s(s(s(s(1)))), b(1,2,3)" in scanner.
 //// When parser parses all terms via scanner.
 //// Then it should return two Struct.
