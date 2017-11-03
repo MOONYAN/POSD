@@ -153,14 +153,16 @@ TEST(ParserTest, parseListOfListsAndStruct) {
 	ASSERT_EQ("[[1], [], s(s(1))]", parser.createTerm()->symbol());
 }
 
-//// Given there is string: "   [1, 2]" in scanner.
-//// When parser parses all terms via scanner.
-//// Then it should return a List.
-//// And #symbol() of List should return "[1, 2]".
-//TEST(ParserTest, parseList) {
-//
-//}
-//
+// Given there is string: "   [1, 2]" in scanner.
+// When parser parses all terms via scanner.
+// Then it should return a List.
+// And #symbol() of List should return "[1, 2]".
+TEST(ParserTest, parseList) {
+	Scanner scanner("   [1, 2]");
+	Parser parser(scanner);
+	ASSERT_EQ("[1, 2]", parser.createTerm()->symbol());
+}
+
 //// Given there is string: "[1,2)" in scanner.
 //// When parser parses all terms via scanner.
 //// Then it should return a string: "unexpected token" as exception.
