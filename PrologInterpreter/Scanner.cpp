@@ -37,7 +37,7 @@ Leaf * Scanner::peekNextLeaf()
 	Leaf* leaf = NULL;
 	smatch sm;
 
-	for each (auto pair in _regexMap)
+	for (auto pair : _regexMap)
 	{
 		const string& tokenType = pair.first;
 		regex& regexPattern = pair.second;
