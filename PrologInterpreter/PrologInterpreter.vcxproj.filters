@@ -30,10 +30,16 @@
     <ClCompile Include="Struct.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Proxy.cpp">
+    <ClCompile Include="List.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="List.cpp">
+    <ClCompile Include="Scanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Leaf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Parser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,16 +68,28 @@
     <ClInclude Include="utVariable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Proxy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="utProxy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="List.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="utList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scanner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utScanner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Leaf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utLeaf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

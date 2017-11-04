@@ -12,6 +12,10 @@ Number::Number(double number)
 	ss >> _symbol;
 }
 
+Number::Number(string number):_symbol(number)
+{
+}
+
 Number::~Number()
 {
 }

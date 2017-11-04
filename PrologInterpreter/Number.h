@@ -10,6 +10,7 @@ private:
 public:
 	Number(int number);
 	Number(double number);
+	Number(string number);
 	~Number();
 
 	// Inherited via Term
