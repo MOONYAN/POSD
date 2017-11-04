@@ -73,3 +73,185 @@ TEST(Scanner, keywords)
 	doAssert(")", "StructEnd");
 	doAssert("", "EndOfString");
 }
+
+//X=Y
+TEST(Scanner, VarMatchVar)
+{
+	Scanner scanner("X=Y");
+	auto doAssert = [&](string expectValue, string expectType) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectType, leaf->getTokenType());
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	doAssert("X", "Variable");
+	doAssert("=", "Match");
+	doAssert("Y", "Variable");
+}
+
+//X=tom
+TEST(Scanner, VarMatchAtom)
+{
+	Scanner scanner("X=tom");
+	auto doAssert = [&](string expectValue, string expectType) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectType, leaf->getTokenType());
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	doAssert("X", "Variable");
+	doAssert("=", "Match");
+	doAssert("tom", "Atom");
+}
+
+//X=123.4567
+TEST(Scanner, VarMatchNumber)
+{
+	Scanner scanner("X=123.4567");
+	auto doAssert = [&](string expectValue, string expectType) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectType, leaf->getTokenType());
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	doAssert("X", "Variable");
+	doAssert("=", "Match");
+	doAssert("123.4567", "Number");
+}
+
+//tom=123.4567
+TEST(Scanner, AtomMatchNumber)
+{
+	Scanner scanner("tom=123.4567");
+	auto doAssert = [&](string expectValue, string expectType) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectType, leaf->getTokenType());
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	doAssert("tom", "Atom");
+	doAssert("=", "Match");
+	doAssert("123.4567", "Number");
+}
+
+//123.4567=X
+TEST(Scanner, NumberMatchVar)
+{
+	Scanner scanner("123.4567=X");
+	auto doAssert = [&](string expectValue, string expectType) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectType, leaf->getTokenType());
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	doAssert("123.4567", "Number");
+	doAssert("=", "Match");
+	doAssert("X", "Variable");
+}
+
+//X=s(tom)
+TEST(Scanner, VarMatchStructWithAtom)
+{
+	Scanner scanner("X=s(tom)");
+	auto doAssert = [&](string expectValue, string expectType) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectType, leaf->getTokenType());
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	doAssert("X", "Variable");
+	doAssert("=", "Match");
+	doAssert("s", "Atom");
+	doAssert("(", "StructBegin");
+	doAssert("tom", "Atom");
+	doAssert(")", "StructEnd");
+}
+
+//X=s(123.4567)
+TEST(Scanner, VarMatchStructWithNumber)
+{
+	Scanner scanner("X=s(123.4567)");
+	auto doAssert = [&](string expectValue, string expectType) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectType, leaf->getTokenType());
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	doAssert("X", "Variable");
+	doAssert("=", "Match");
+	doAssert("s", "Atom");
+	doAssert("(", "StructBegin");
+	doAssert("123.4567", "Number");
+	doAssert(")", "StructEnd");
+}
+
+//X=s(_abc)
+TEST(Scanner, VarMatchStructWithVar)
+{
+	Scanner scanner("X=s(_abc)");
+	auto doAssert = [&](string expectValue, string expectType) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectType, leaf->getTokenType());
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	doAssert("X", "Variable");
+	doAssert("=", "Match");
+	doAssert("s", "Atom");
+	doAssert("(", "StructBegin");
+	doAssert("_abc", "Variable");
+	doAssert(")", "StructEnd");
+}
+
+//X=[_abc]
+TEST(Scanner, VarMatchListWithVar)
+{
+	Scanner scanner("X=[_abc]");
+	auto doAssert = [&](string expectValue, string expectType) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectType, leaf->getTokenType());
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	doAssert("X", "Variable");
+	doAssert("=", "Match");
+	doAssert("[", "ListBegin");
+	doAssert("_abc", "Variable");
+	doAssert("]", "ListEnd");
+}
+
+//X=s(father(tom,sam),mother(merry,leo))
+TEST(Scanner, VarMatchNestedStruct)
+{
+	Scanner scanner("X=s(father(tom,sam),mother(merry,leo))");
+	auto doAssert = [&](string expectValue) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	auto result = { "X","=","s","(","father","(","tom",",","sam",")",",","mother","(","merry",",","leo",")",")" };
+	for each (auto value in result)
+	{
+		doAssert(value);
+	}
+}
+
+//X=[father(tom,sam),mother(merry,leo)]
+TEST(Scanner, VarMatchListWithStruct)
+{
+	Scanner scanner("X=[father(tom,sam),mother(merry,leo)]");
+	auto doAssert = [&](string expectValue) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	auto result = { "X","=","[","father","(","tom",",","sam",")",",","mother","(","merry",",","leo",")","]" };
+	for each (auto value in result)
+	{
+		doAssert(value);
+	}
+}
+
+//X = [ father(tom, sam), mother(merry, leo) ]
+TEST(Scanner, RemoveSpace)
+{
+	Scanner scanner("X = [ father(tom, sam), mother(merry, leo) ]");
+	auto doAssert = [&](string expectValue) {
+		Leaf* leaf = scanner.getNextLeaf();
+		ASSERT_EQ(expectValue, leaf->getTokenValue());
+	};
+	auto result = { "X","=","[","father","(","tom",",","sam",")",",","mother","(","merry",",","leo",")","]" };
+	for each (auto value in result)
+	{
+		doAssert(value);
+	}
+}

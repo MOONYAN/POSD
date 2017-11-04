@@ -2,8 +2,11 @@
 
 
 
-Scanner::Scanner(string inputString) :_inputString(inputString)
+Scanner::Scanner(string inputString)
 {
+	stringstream ss;
+	ss << regex_replace(inputString, regex({"\\s"}), "");
+	ss >> _inputString;
 }
 
 

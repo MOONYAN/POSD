@@ -3,6 +3,7 @@
 #include "Leaf.h"
 #include <regex>
 #include <map>
+#include <sstream>
 using namespace std;
 
 class Scanner
