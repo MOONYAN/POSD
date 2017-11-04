@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include "global.h"
 #include "utTerm.h"
 #include "utStruct.h"
 #include "utVariable.h"
