@@ -8,7 +8,7 @@ Struct::~Struct()
 {
 }
 
-Atom Struct::name()
+Atom& Struct::name()
 {
 	return _name;
 }

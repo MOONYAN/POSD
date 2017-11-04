@@ -12,7 +12,7 @@ private:
 public:
 	Struct(Atom name, vector<Term*>& childs);
 	~Struct();
-	Atom name();
+	Atom& name();
 	Term* args(int index);
 	bool match(Struct & other);
 	int getChildCount();
