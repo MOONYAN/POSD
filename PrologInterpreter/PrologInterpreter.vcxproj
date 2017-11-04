@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Atom.h" />
+    <ClInclude Include="global.h" />
     <ClInclude Include="Leaf.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Number.h" />
