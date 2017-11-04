@@ -220,7 +220,7 @@ TEST(Scanner, VarMatchNestedStruct)
 		ASSERT_EQ(expectValue, leaf->getTokenValue());
 	};
 	auto result = { "X","=","s","(","father","(","tom",",","sam",")",",","mother","(","merry",",","leo",")",")" };
-	for each (auto value in result)
+	for (auto value : result)
 	{
 		doAssert(value);
 	}
@@ -235,7 +235,7 @@ TEST(Scanner, VarMatchListWithStruct)
 		ASSERT_EQ(expectValue, leaf->getTokenValue());
 	};
 	auto result = { "X","=","[","father","(","tom",",","sam",")",",","mother","(","merry",",","leo",")","]" };
-	for each (auto value in result)
+	for (auto value : result)
 	{
 		doAssert(value);
 	}
@@ -250,7 +250,7 @@ TEST(Scanner, RemoveSpace)
 		ASSERT_EQ(expectValue, leaf->getTokenValue());
 	};
 	auto result = { "X","=","[","father","(","tom",",","sam",")",",","mother","(","merry",",","leo",")","]" };
-	for each (auto value in result)
+	for (auto value : result)
 	{
 		doAssert(value);
 	}

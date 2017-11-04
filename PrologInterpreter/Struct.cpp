@@ -1,6 +1,6 @@
 #include "Struct.h"
 
-Struct::Struct(Atom name, vector<Term*>& childs) :_name(name), _childs(childs)
+Struct::Struct(Atom name, vector<Term*> childs) :_name(name), _childs(childs)
 {	
 }
 
@@ -8,7 +8,7 @@ Struct::~Struct()
 {
 }
 
-Atom Struct::name()
+Atom& Struct::name()
 {
 	return _name;
 }
