@@ -32,6 +32,23 @@ Leaf * Scanner::getNextLeaf()
 	return leaf;
 }
 
+Leaf * Scanner::peekNextLeaf()
+{
+	Leaf* leaf = NULL;
+	smatch sm;
+
+	for each (auto pair in _regexMap)
+	{
+		const string& tokenType = pair.first;
+		regex& regexPattern = pair.second;
+		if (regex_search(_inputString, sm, regexPattern)) {
+			leaf = new Leaf(tokenType, sm.str());
+			break;
+		}
+	}
+	return leaf;
+}
+
 map<string, regex> Scanner::_regexMap = {
 	{ "Variable", regex({ "^[A-Z_]\\w*" }) },
 	{ "Atom", regex({ "^[a-z]\\w*" }) },
