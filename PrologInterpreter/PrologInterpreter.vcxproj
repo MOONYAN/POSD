@@ -126,6 +126,7 @@
     <ClCompile Include="Leaf.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="Number.cpp" />
+    <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Struct.cpp" />
@@ -136,11 +137,13 @@
     <ClInclude Include="Leaf.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Number.h" />
+    <ClInclude Include="Parser.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="Term.h" />
     <ClInclude Include="utLeaf.h" />
     <ClInclude Include="utList.h" />
+    <ClInclude Include="utParser.h" />
     <ClInclude Include="utScanner.h" />
     <ClInclude Include="utStruct.h" />
     <ClInclude Include="utTerm.h" />
