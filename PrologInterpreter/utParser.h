@@ -115,7 +115,7 @@ TEST(ParserTest, parseVar) {
 // When parser parses all terms via scanner.
 // Then it should return nothing.
 TEST(ParserTest, listOfTermsEmpty) {
-	Scanner scanner("");
+	Scanner scanner;
 	Parser parser(scanner);
 	ASSERT_EQ(nullptr, parser.createTerm());
 }
