@@ -12,7 +12,7 @@ private:
 	static map<string, regex> _regexMap;
 	string _inputString;
 public:
-	Scanner(string inputString);
+	Scanner(string inputString="");
 	~Scanner();
 	Leaf* getNextLeaf();
 	Leaf* peekNextLeaf();
