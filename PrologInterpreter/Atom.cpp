@@ -9,12 +9,12 @@ Atom::~Atom()
 {
 }
 
-string Atom::symbol()
+string Atom::symbol() const
 {
 	return _symbol;
 }
 
-string Atom::value()
+string Atom::value() const
 {
 	return _symbol;
 }

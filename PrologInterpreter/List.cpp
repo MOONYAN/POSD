@@ -42,7 +42,7 @@ int List::getChildCount()
 	return _elements.size();
 }
 
-string List::symbol()
+string List::symbol() const
 {
 	stringstream ss;
 	ss << "[";
@@ -56,7 +56,7 @@ string List::symbol()
 	return ss.str();
 }
 
-string List::value()
+string List::value() const
 {
 	stringstream ss;
 	ss << "[";
