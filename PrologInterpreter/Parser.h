@@ -14,6 +14,8 @@ class Parser
 private:
 	Scanner* _scanner;
 	vector<Term *> _terms;
+	Node* _treeRoot;
+	Node* createTree();
 public:
 	Parser(Scanner& scanner);
 	~Parser();
