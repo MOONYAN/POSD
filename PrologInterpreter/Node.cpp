@@ -12,5 +12,9 @@ bool Node::evaluate()
 		Term* right = this->right->term;
 		return left->match(*right);
 	}
+	else if (this->payload == COMMA)
+	{
+		return left->evaluate() && right->evaluate();
+	}
 	return false;
 }
