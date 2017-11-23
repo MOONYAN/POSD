@@ -5,6 +5,7 @@
 #include "List.h"
 #include "Variable.h"
 #include "Number.h"
+#include "Node.h"
 
 TEST(ParserTest, createTerm_Var) {
 	Scanner scanner("X");
@@ -189,24 +190,24 @@ TEST(ParserTest, createTerm_ListAsStruct2) {
 	Struct * s = dynamic_cast<Struct *>(((Struct *)term)->args(1));
 	EXPECT_EQ(".(1, [])", s->symbol());
 }
-//
-//TEST_F(ParserTest, OneMatching) {
-//	Scanner scanner("X=1.");
-//	Parser parser(scanner);
-//	parser.matchings();
-//	vector<Term *> terms = parser.getTerms();
-//	EXPECT_EQ(2, terms.size());
-//	EXPECT_EQ("X", terms[0]->symbol());
-//	EXPECT_EQ("1", terms[1]->symbol());
-//	EXPECT_NE("1", terms[0]->value());
-//
-//	Node * et = parser.expressionTree();
-//	EXPECT_EQ(EQUALITY, et->payload);
-//
-//	EXPECT_TRUE(et->evaluate());
-//	EXPECT_EQ("1", terms[0]->value());
-//}
-//
+
+TEST(ParserTest, OneMatching) {
+	Scanner scanner("X=1.");
+	Parser parser(scanner);
+	parser.matchings();
+	vector<Term *> terms = parser.getTerms();
+	EXPECT_EQ(2, terms.size());
+	EXPECT_EQ("X", terms[0]->symbol());
+	EXPECT_EQ("1", terms[1]->symbol());
+	EXPECT_NE("1", terms[0]->value());
+
+	Node * et = parser.expressionTree();
+	EXPECT_EQ(EQUALITY, et->payload);
+
+	EXPECT_TRUE(et->evaluate());
+	EXPECT_EQ("1", terms[0]->value());
+}
+
 //TEST_F(ParserTest, OneMatchingFalse) {
 //	Scanner scanner("1=2.");
 //	Parser parser(scanner);

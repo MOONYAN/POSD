@@ -1,5 +1,34 @@
 #include "Parser.h"
 
+Node * Parser::createTree()
+{
+	Node* root = nullptr;
+	Term* term = nullptr;
+	term = this->createTerm();
+	_terms.push_back(term);
+	Node* left = new Node(TERM, term, nullptr, nullptr);
+	//expect =
+	_scanner->getNextLeaf();
+	Node* operateor = new Node(EQUALITY);
+	term = this->createTerm();
+	_terms.push_back(term);
+	Node* right = new Node(TERM, term, nullptr, nullptr);
+	operateor->left = left;
+	operateor->right = right;
+
+
+	Leaf* leaf = _scanner->peekNextLeaf();
+	if (leaf->getTokenType() == "EndOfClause")
+	{
+		root = operateor;
+	}
+	else if (leaf->getTokenType() == "Comma")
+	{
+		root = new Node(COMMA, nullptr, operateor, this->createTree());
+	}
+	return root;
+}
+
 Parser::Parser(Scanner & scanner) :_scanner(&scanner)
 {
 
@@ -83,4 +112,15 @@ void Parser::createTerms()
 vector<Term*>& Parser::getTerms()
 {
 	return _terms;
+}
+
+void Parser::matchings()
+{
+	_terms = vector<Term*>();
+	_treeRoot = createTree();
+}
+
+Node * Parser::expressionTree()
+{
+	return _treeRoot;
 }

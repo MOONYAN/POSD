@@ -72,6 +72,7 @@ TEST(Scanner, keywords)
 	doAssert("(", "StructBegin");
 	doAssert(")", "StructEnd");
 	doAssert("", "EndOfString");
+	doAssert(".", "EndOfClause");
 }
 
 //X=Y

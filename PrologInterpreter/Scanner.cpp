@@ -19,7 +19,7 @@ Leaf * Scanner::getNextLeaf()
 	Leaf* leaf = NULL;
 	smatch sm;
 
-	for (auto pair : _regexMap)
+	for (auto pair : _regexs)
 	{
 		const string& tokenType = pair.first;
 		regex& regexPattern = pair.second;
@@ -37,7 +37,7 @@ Leaf * Scanner::peekNextLeaf()
 	Leaf* leaf = NULL;
 	smatch sm;
 
-	for (auto pair : _regexMap)
+	for (auto pair : _regexs)
 	{
 		const string& tokenType = pair.first;
 		regex& regexPattern = pair.second;
@@ -49,7 +49,8 @@ Leaf * Scanner::peekNextLeaf()
 	return leaf;
 }
 
-map<string, regex> Scanner::_regexMap = {
+list<pair<string, regex>> Scanner::_regexs = {
+	{ "EndOfClause", regex({ "^\\.$" }) },
 	{ "Variable", regex({ "^[A-Z_]\\w*" }) },
 	{ "Atom", regex({ "^[.a-z][.a-zA-z0-9_]*" }) },
 	{ "Number", regex({ "^(\\+|-)?(\\d+(\\.\\d+)?)" }) },
