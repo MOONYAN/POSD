@@ -17,7 +17,7 @@ Node * Parser::createTree()
 	operateor->right = right;
 
 
-	Leaf* leaf = _scanner->peekNextLeaf();
+	Leaf* leaf = _scanner->getNextLeaf();
 	if (leaf->getTokenType() == "EndOfClause")
 	{
 		root = operateor;
