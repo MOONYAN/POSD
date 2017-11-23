@@ -6,6 +6,7 @@
 #include "Atom.h"
 #include "Struct.h"
 #include "List.h"
+#include "Node.h"
 #include <vector>
 
 class Parser
@@ -20,5 +21,7 @@ public:
 	vector<Term*> getArgs();
 	void createTerms();
 	vector<Term *> & getTerms();
+	void matchings();
+	Node* expressionTree();
 };
 

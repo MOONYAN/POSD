@@ -84,3 +84,12 @@ vector<Term*>& Parser::getTerms()
 {
 	return _terms;
 }
+
+void Parser::matchings()
+{
+}
+
+Node * Parser::expressionTree()
+{
+	return nullptr;
+}
