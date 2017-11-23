@@ -74,3 +74,13 @@ vector<Term*> Parser::getArgs()
 	} while (true);
 	return args;
 }
+
+void Parser::createTerms()
+{
+	_terms = getArgs();
+}
+
+vector<Term*>& Parser::getTerms()
+{
+	return _terms;
+}

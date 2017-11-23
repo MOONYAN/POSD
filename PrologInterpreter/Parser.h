@@ -12,10 +12,13 @@ class Parser
 {
 private:
 	Scanner* _scanner;
+	vector<Term *> _terms;
 public:
 	Parser(Scanner& scanner);
 	~Parser();
 	Term* createTerm();
 	vector<Term*> getArgs();
+	void createTerms();
+	vector<Term *> & getTerms();
 };
 
