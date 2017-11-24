@@ -46,23 +46,23 @@ Term * Parser::createTerm()
 	if (leaf->getTokenType() == "Variable")
 	{
 		_scanner->getNextLeaf();
-		term = new Variable(leaf->getTokenValue());
+		term = _builder.getVariableInstance(leaf->getTokenValue());
 	}
 	else if (leaf->getTokenType() == "Number")
 	{
 		_scanner->getNextLeaf();
-		term = new Number(leaf->getTokenValue());
+		term = _builder.getNumberInstance(leaf->getTokenValue());
 	}
 	else if (leaf->getTokenType() == "Atom")
 	{
 		_scanner->getNextLeaf();
-		Atom* atom = new Atom(leaf->getTokenValue());
+		Atom* atom = _builder.getAtomInstance(leaf->getTokenValue());
 		term = atom;
 		Leaf* next = _scanner->peekNextLeaf();
 		if (next->getTokenType() == "StructBegin")
 		{
 			_scanner->getNextLeaf();
-			term = new Struct(*atom, this->getArgs());
+			term = _builder.getStructInstance(*atom, this->getArgs());
 			//expect )
 			if (_scanner->getNextLeaf()->getTokenType() != "StructEnd")
 			{
@@ -73,7 +73,7 @@ Term * Parser::createTerm()
 	else if (leaf->getTokenType() == "ListBegin")
 	{
 		_scanner->getNextLeaf();
-		term = new List(this->getArgs());
+		term = _builder.getListInstance(this->getArgs());
 		//expect ]
 		if (_scanner->getNextLeaf()->getTokenType() != "ListEnd")
 		{
