@@ -66,6 +66,7 @@ TEST(Scanner, keywords)
 		ASSERT_EQ(inputstring, leaf->getTokenValue());
 	};
 	doAssert(",", "Comma");
+	doAssert(";", "Semicolon");
 	doAssert("=", "Match");
 	doAssert("[", "ListBegin");
 	doAssert("]", "ListEnd");
