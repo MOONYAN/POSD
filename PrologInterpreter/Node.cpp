@@ -13,8 +13,12 @@ bool Node::evaluate()
 		return left->match(*right);
 	}
 	else if (this->payload == COMMA)
+	{		
+		return left->evaluate() & right->evaluate();
+	}
+	else if (this->payload == SEMICOLON)
 	{
-		return left->evaluate() && right->evaluate();
+		return left->evaluate() | right->evaluate();
 	}
 	return false;
 }

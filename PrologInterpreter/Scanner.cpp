@@ -55,6 +55,7 @@ list<pair<string, regex>> Scanner::_regexs = {
 	{ "Atom", regex({ "^[.a-z][.a-zA-z0-9_]*" }) },
 	{ "Number", regex({ "^(\\+|-)?(\\d+(\\.\\d+)?)" }) },
 	{ "Comma", regex({ "^," }) },
+	{ "Semicolon", regex({ "^;" }) },
 	{ "Match", regex({ "^=" }) },
 	{ "ListBegin", regex({ "^\\[" }) },
 	{ "ListEnd", regex({ "^\\]" }) },

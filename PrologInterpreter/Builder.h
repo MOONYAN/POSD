@@ -15,7 +15,7 @@ private:
 public:
 	Builder();
 	~Builder();
-	
+	void clearPool();
 	Atom* getAtomInstance(string symbol);
 	Variable* getVariableInstance(string symbol);
 	Number* getNumberInstance(string symbol);

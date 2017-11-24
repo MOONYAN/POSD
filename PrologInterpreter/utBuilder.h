@@ -61,3 +61,12 @@ TEST(BuilderTest, ListInstance)
 	List* again = builder.getListInstance(terms);
 	ASSERT_EQ(term, again);
 }
+
+TEST(BuilderTest, Clear)
+{
+	Builder builder;
+	Atom* term = builder.getAtomInstance("tom");
+	builder.clearPool();
+	Atom* again = builder.getAtomInstance("tom");
+	ASSERT_NE(term, again);
+}
