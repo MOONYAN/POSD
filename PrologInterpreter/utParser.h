@@ -265,26 +265,24 @@ TEST(ParserTest, ThreeTermsMatching) {
 
 }
 
-//TEST_F(ParserTest, TwoVariableMatching2) {
-//	Scanner scanner("X=1, X=Y.");
-//	Parser parser(scanner);
-//	parser.matchings();
-//	vector<Term *> terms = parser.getTerms();
-//	EXPECT_EQ(4, terms.size());
-//	EXPECT_EQ("X", terms[0]->symbol());
-//	EXPECT_EQ("1", terms[1]->symbol());
-//	EXPECT_EQ("X", terms[2]->symbol());
-//	EXPECT_EQ("Y", terms[3]->symbol());
-//	EXPECT_EQ("X", symtable[0].first);
-//	EXPECT_EQ("Y", symtable[1].first);
-//
-//	Node * et = parser.expressionTree();
-//	EXPECT_TRUE(et->evaluate());
-//
-//	EXPECT_EQ("1", terms[0]->value());
-//	EXPECT_EQ("1", terms[2]->value());
-//}
-//
+TEST(ParserTest, TwoVariableMatching2) {
+	Scanner scanner("X=1, X=Y.");
+	Parser parser(scanner);
+	parser.matchings();
+	vector<Term *> terms = parser.getTerms();
+	EXPECT_EQ(4, terms.size());
+	EXPECT_EQ("X", terms[0]->symbol());
+	EXPECT_EQ("1", terms[1]->symbol());
+	EXPECT_EQ("X", terms[2]->symbol());
+	EXPECT_EQ("Y", terms[3]->symbol());
+
+	Node * et = parser.expressionTree();
+	EXPECT_TRUE(et->evaluate());
+
+	EXPECT_EQ("1", terms[0]->value());
+	EXPECT_EQ("1", terms[2]->value());
+}
+
 //TEST_F(ParserTest, TwoVariableMatching3) {
 //	Scanner scanner("X=Y, X=1.");
 //	Parser parser(scanner);
