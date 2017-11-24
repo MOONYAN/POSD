@@ -26,6 +26,11 @@ Node * Parser::createTree()
 	{
 		root = new Node(COMMA, nullptr, operateor, this->createTree());
 	}
+	else if(leaf->getTokenType() == "Semicolon")
+	{
+		_builder.clearPool();
+		root = new Node(SEMICOLON, nullptr, operateor, this->createTree());
+	}
 	return root;
 }
 
