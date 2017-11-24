@@ -11,6 +11,11 @@ Builder::~Builder()
 {
 }
 
+void Builder::clearPool()
+{
+	_termMap.clear();
+}
+
 Atom * Builder::getAtomInstance(string symbol)
 {
 	if (_termMap[symbol] == nullptr)
