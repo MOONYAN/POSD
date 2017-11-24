@@ -10,8 +10,8 @@ public:
 	Variable(string symbol);
 	~Variable();
 	// Inherited via Term
-	virtual string symbol() override;
-	virtual string value() override;
+	virtual string symbol() const override;
+	virtual string value() const override;
 	virtual bool match(Term& other) override;
 	virtual bool tryAssign(Term& other) override;
 };

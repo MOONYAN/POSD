@@ -1,5 +1,39 @@
 #include "Parser.h"
 
+Node * Parser::createTree()
+{
+	Node* root = nullptr;
+	Term* term = nullptr;
+	term = this->createTerm();
+	_terms.push_back(term);
+	Node* left = new Node(TERM, term, nullptr, nullptr);
+	//expect =
+	_scanner->getNextLeaf();
+	Node* operateor = new Node(EQUALITY);
+	term = this->createTerm();
+	_terms.push_back(term);
+	Node* right = new Node(TERM, term, nullptr, nullptr);
+	operateor->left = left;
+	operateor->right = right;
+
+
+	Leaf* leaf = _scanner->getNextLeaf();
+	if (leaf->getTokenType() == "EndOfClause")
+	{
+		root = operateor;
+	}
+	else if (leaf->getTokenType() == "Comma")
+	{
+		root = new Node(COMMA, nullptr, operateor, this->createTree());
+	}
+	else if(leaf->getTokenType() == "Semicolon")
+	{
+		_builder.clearPool();
+		root = new Node(SEMICOLON, nullptr, operateor, this->createTree());
+	}
+	return root;
+}
+
 Parser::Parser(Scanner & scanner) :_scanner(&scanner)
 {
 
@@ -17,23 +51,23 @@ Term * Parser::createTerm()
 	if (leaf->getTokenType() == "Variable")
 	{
 		_scanner->getNextLeaf();
-		term = new Variable(leaf->getTokenValue());
+		term = _builder.getVariableInstance(leaf->getTokenValue());
 	}
 	else if (leaf->getTokenType() == "Number")
 	{
 		_scanner->getNextLeaf();
-		term = new Number(leaf->getTokenValue());
+		term = _builder.getNumberInstance(leaf->getTokenValue());
 	}
 	else if (leaf->getTokenType() == "Atom")
 	{
 		_scanner->getNextLeaf();
-		Atom* atom = new Atom(leaf->getTokenValue());
+		Atom* atom = _builder.getAtomInstance(leaf->getTokenValue());
 		term = atom;
 		Leaf* next = _scanner->peekNextLeaf();
 		if (next->getTokenType() == "StructBegin")
 		{
 			_scanner->getNextLeaf();
-			term = new Struct(*atom, this->getArgs());
+			term = _builder.getStructInstance(*atom, this->getArgs());
 			//expect )
 			if (_scanner->getNextLeaf()->getTokenType() != "StructEnd")
 			{
@@ -44,7 +78,7 @@ Term * Parser::createTerm()
 	else if (leaf->getTokenType() == "ListBegin")
 	{
 		_scanner->getNextLeaf();
-		term = new List(this->getArgs());
+		term = _builder.getListInstance(this->getArgs());
 		//expect ]
 		if (_scanner->getNextLeaf()->getTokenType() != "ListEnd")
 		{
@@ -73,4 +107,25 @@ vector<Term*> Parser::getArgs()
 			_scanner->getNextLeaf();
 	} while (true);
 	return args;
+}
+
+void Parser::createTerms()
+{
+	_terms = getArgs();
+}
+
+vector<Term*>& Parser::getTerms()
+{
+	return _terms;
+}
+
+void Parser::matchings()
+{
+	_terms = vector<Term*>();
+	_treeRoot = createTree();
+}
+
+Node * Parser::expressionTree()
+{
+	return _treeRoot;
 }

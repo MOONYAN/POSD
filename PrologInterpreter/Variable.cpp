@@ -8,12 +8,12 @@ Variable::~Variable()
 {
 }
 
-string Variable::symbol()
+string Variable::symbol() const
 {
 	return _symbol;
 }
 
-string Variable::value()
+string Variable::value() const
 {
 	if (_instance)
 	{

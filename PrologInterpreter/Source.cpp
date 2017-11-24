@@ -7,6 +7,7 @@
 #include "utScanner.h"
 #include "utLeaf.h"
 #include "utParser.h"
+#include "utBuilder.h"
 
 int main(int argc, char** argv)
 {

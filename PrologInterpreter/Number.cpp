@@ -20,12 +20,12 @@ Number::~Number()
 {
 }
 
-string Number::symbol()
+string Number::symbol() const
 {
 	return _symbol;
 }
 
-string Number::value()
+string Number::value() const
 {
 	return _symbol;
 }

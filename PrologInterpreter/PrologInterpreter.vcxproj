@@ -123,8 +123,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom.cpp" />
+    <ClCompile Include="Builder.cpp" />
     <ClCompile Include="Leaf.cpp" />
     <ClCompile Include="List.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Scanner.cpp" />
@@ -134,14 +136,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Atom.h" />
+    <ClInclude Include="Builder.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="Leaf.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="Term.h" />
+    <ClInclude Include="utBuilder.h" />
     <ClInclude Include="utLeaf.h" />
     <ClInclude Include="utList.h" />
     <ClInclude Include="utParser.h" />

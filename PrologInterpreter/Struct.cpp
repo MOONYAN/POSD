@@ -49,7 +49,7 @@ int Struct::arity()
 	return _childs.size();
 }
 
-string Struct::symbol()
+string Struct::symbol() const
 {
 	stringstream ss;
 	ss << _name.symbol() << "(";
@@ -63,7 +63,7 @@ string Struct::symbol()
 	return ss.str();
 }
 
-string Struct::value()
+string Struct::value() const
 {
 	stringstream ss;
 	ss << _name.symbol() << "(";
