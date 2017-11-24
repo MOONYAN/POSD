@@ -7,15 +7,17 @@
 #include "Struct.h"
 #include "List.h"
 #include "Node.h"
+#include "Builder.h"
 #include <vector>
 
 class Parser
 {
 private:
+	Builder _builder;
 	Scanner* _scanner;
 	vector<Term *> _terms;
 	Node* _treeRoot;
-	Node* createTree();
+	Node* createTree();	
 public:
 	Parser(Scanner& scanner);
 	~Parser();
