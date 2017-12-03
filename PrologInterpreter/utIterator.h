@@ -159,3 +159,100 @@ TEST(iterator, ListBFS1)
 	iterator->next();
 	ASSERT_TRUE(iterator->isDone());
 }
+
+
+//root(X0(X00,X01),X1(X1,X0));
+TEST(iterator, StructDFS2)
+{
+	Scanner scanner("root([x00, x01], [x10, x11])");
+	Parser parser(scanner);
+	Term* root = parser.createTerm();
+	ASSERT_EQ("root([x00, x01], [x10, x11])", root->symbol());
+	Iterator<Term*> *iterator = root->createDFSIterator();
+	iterator->first();
+	ASSERT_EQ("[x00, x01]", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x00", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x01", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("[x10, x11]", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x10", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x11", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_TRUE(iterator->isDone());
+}
+
+//[[x00, x01], [x10, x11]]
+TEST(iterator, ListDFS2)
+{
+	Scanner scanner("[x0(x00, x01), x1(x10, x11)]");
+	Parser parser(scanner);
+	Term* root = parser.createTerm();
+	ASSERT_EQ("[x0(x00, x01), x1(x10, x11)]", root->symbol());
+	Iterator<Term*> *iterator = root->createDFSIterator();
+	iterator->first();
+	ASSERT_EQ("x0(x00, x01)", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x00", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x01", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x1(x10, x11)", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x10", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x11", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_TRUE(iterator->isDone());
+}
+
+//root(X0(X00,X01),X1(X1,X0));
+TEST(iterator, StructBFS2)
+{
+	Scanner scanner("root([x00, x01], [x10, x11])");
+	Parser parser(scanner);
+	Term* root = parser.createTerm();
+	ASSERT_EQ("root([x00, x01], [x10, x11])", root->symbol());
+	Iterator<Term*> *iterator = root->createBFSIterator();
+	iterator->first();
+	ASSERT_EQ("[x00, x01]", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("[x10, x11]", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x00", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x01", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x10", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x11", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_TRUE(iterator->isDone());
+}
+
+//[[x00, x01], [x10, x11]]
+TEST(iterator, ListBFS2)
+{
+	Scanner scanner("[x0(x00, x01), x1(x10, x11)]");
+	Parser parser(scanner);
+	Term* root = parser.createTerm();
+	ASSERT_EQ("[x0(x00, x01), x1(x10, x11)]", root->symbol());
+	Iterator<Term*> *iterator = root->createBFSIterator();
+	iterator->first();
+	ASSERT_EQ("x0(x00, x01)", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x1(x10, x11)", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x00", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x01", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x10", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x11", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_TRUE(iterator->isDone());
+}
