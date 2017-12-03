@@ -14,6 +14,8 @@ public:
 	List * tail() const;
 	bool match(List & other);
 	int getChildCount();
+	int arity();
+	Term* args(int index);
 
 	// Inherited via Term
 	virtual string symbol() const override;

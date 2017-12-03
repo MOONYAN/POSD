@@ -30,3 +30,19 @@ TEST(iterator, Variable)
 	ASSERT_TRUE(iterator->isDone());
 }
 
+TEST(iterator, List) {
+	Variable X("X");
+	Variable Y("Y");
+	vector<Term*> v = { &X,&Y };
+	List list(v);
+	Iterator<Term*> *iterator = list.createIterator();
+	iterator->first();
+	ASSERT_FALSE(iterator->isDone());
+	ASSERT_EQ("X",iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_FALSE(iterator->isDone());
+	ASSERT_EQ("Y", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_TRUE(iterator->isDone());
+}
+

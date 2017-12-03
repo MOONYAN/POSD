@@ -141,6 +141,7 @@
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="Leaf.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="ListIterator.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NullIterator.h" />
     <ClInclude Include="Number.h" />

@@ -1,4 +1,5 @@
 #include "List.h"
+#include "ListIterator.h"
 
 Term * List::head() const
 {
@@ -40,6 +41,16 @@ bool List::match(List & other)
 int List::getChildCount()
 {
 	return _elements.size();
+}
+
+int List::arity()
+{
+	return _elements.size();
+}
+
+Term * List::args(int index)
+{
+	return _elements[index];
 }
 
 string List::symbol() const
@@ -84,5 +95,5 @@ bool List::tryAssign(Term & other)
 
 Iterator<Term*>* List::createIterator()
 {
-	return nullptr;
+	return new ListIterator(this);
 }

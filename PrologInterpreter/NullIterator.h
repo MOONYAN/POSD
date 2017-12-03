@@ -8,7 +8,6 @@ public:
 	NullIterator(){}
 	~NullIterator(){}
 
-private:
 	// Inherited via Iterator
 	virtual void first() override
 	{
