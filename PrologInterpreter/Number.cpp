@@ -51,3 +51,8 @@ Iterator<Term*>* Number::createDFSIterator()
 {
 	return new NullIterator<Term*>();
 }
+
+Iterator<Term*>* Number::createBFSIterator()
+{
+	return new NullIterator<Term*>();
+}

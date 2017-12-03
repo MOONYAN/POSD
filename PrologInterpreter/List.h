@@ -24,4 +24,5 @@ public:
 	virtual bool tryAssign(Term & other) override;
 	virtual Iterator<Term*>* createIterator() override;
 	virtual Iterator<Term*>* createDFSIterator() override;
+	virtual Iterator<Term*>* createBFSIterator() override;
 };

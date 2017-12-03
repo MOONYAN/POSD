@@ -103,3 +103,8 @@ Iterator<Term*>* List::createDFSIterator()
 {
 	return new DFSIterator(this);
 }
+
+Iterator<Term*>* List::createBFSIterator()
+{
+	return nullptr;
+}

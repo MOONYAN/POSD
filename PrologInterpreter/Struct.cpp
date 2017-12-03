@@ -1,6 +1,7 @@
 #include "Struct.h"
 #include "StructIterator.h"
 #include "DFSIterator.h"
+#include "BFSIterator.h"
 
 Struct::Struct(Atom name, vector<Term*> childs) :_name(name), _childs(childs)
 {	
@@ -99,4 +100,9 @@ Iterator<Term*>* Struct::createIterator()
 Iterator<Term*>* Struct::createDFSIterator()
 {
 	return new DFSIterator(this);
+}
+
+Iterator<Term*>* Struct::createBFSIterator()
+{
+	return new BFSIterator(this);
 }

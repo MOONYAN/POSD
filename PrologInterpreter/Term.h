@@ -11,4 +11,5 @@ public:
 	virtual bool tryAssign(Term& other) = 0;
 	virtual Iterator<Term*>* createIterator() = 0;
 	virtual Iterator<Term*>* createDFSIterator() = 0;
+	virtual Iterator<Term*>* createBFSIterator() = 0;
 };
