@@ -125,5 +125,8 @@
     <ClInclude Include="StructIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DFSIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
