@@ -128,5 +128,8 @@
     <ClInclude Include="DFSIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BFSIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
