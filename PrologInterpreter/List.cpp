@@ -1,6 +1,7 @@
 #include "List.h"
 #include "ListIterator.h"
 #include "DFSIterator.h"
+#include "BFSIterator.h"
 
 Term * List::head() const
 {
@@ -106,5 +107,5 @@ Iterator<Term*>* List::createDFSIterator()
 
 Iterator<Term*>* List::createBFSIterator()
 {
-	return nullptr;
+	return new BFSIterator(this);
 }
