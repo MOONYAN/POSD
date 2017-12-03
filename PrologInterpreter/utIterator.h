@@ -46,3 +46,18 @@ TEST(iterator, List) {
 	ASSERT_TRUE(iterator->isDone());
 }
 
+TEST(iterator, Struct) {
+	Variable X("X");
+	Variable Y("Y");
+	vector<Term*> v = { &X,&Y };
+	Struct s(Atom("tom"),v);
+	Iterator<Term*> *iterator = s.createIterator();
+	iterator->first();
+	ASSERT_FALSE(iterator->isDone());
+	ASSERT_EQ("X", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_FALSE(iterator->isDone());
+	ASSERT_EQ("Y", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_TRUE(iterator->isDone());
+}
