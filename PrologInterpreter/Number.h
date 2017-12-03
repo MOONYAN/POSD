@@ -19,6 +19,6 @@ public:
 	virtual string value() const override;
 	virtual bool match(Term& other) override;
 	virtual bool tryAssign(Term& other) override;
-	Iterator<Term*> *createIterator();
+	virtual Iterator<Term*>* createIterator() override;
 };
 

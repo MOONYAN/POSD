@@ -88,3 +88,8 @@ bool Struct::tryAssign(Term & other)
 {
 	return false;
 }
+
+Iterator<Term*>* Struct::createIterator()
+{
+	return nullptr;
+}

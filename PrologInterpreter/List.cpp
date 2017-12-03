@@ -81,3 +81,8 @@ bool List::tryAssign(Term & other)
 {
 	return false;
 }
+
+Iterator<Term*>* List::createIterator()
+{
+	return nullptr;
+}

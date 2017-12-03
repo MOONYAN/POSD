@@ -30,3 +30,8 @@ bool Atom::tryAssign(Term& other)
 {
 	return false;
 }
+
+Iterator<Term*>* Atom::createIterator()
+{
+	return new NullIterator<Term*>();
+}
