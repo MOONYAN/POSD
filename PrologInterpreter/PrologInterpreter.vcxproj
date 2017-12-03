@@ -138,9 +138,11 @@
     <ClInclude Include="Atom.h" />
     <ClInclude Include="Builder.h" />
     <ClInclude Include="global.h" />
+    <ClInclude Include="Iterator.h" />
     <ClInclude Include="Leaf.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="NullIterator.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Scanner.h" />
