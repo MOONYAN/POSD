@@ -94,3 +94,8 @@ Iterator<Term*>* Struct::createIterator()
 {
 	return new StructIterator(this);
 }
+
+Iterator<Term*>* Struct::createDFSIterator()
+{
+	return nullptr;
+}

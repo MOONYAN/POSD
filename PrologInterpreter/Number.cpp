@@ -46,3 +46,8 @@ Iterator<Term*>* Number::createIterator()
 {
 	return new NullIterator<Term*>();
 }
+
+Iterator<Term*>* Number::createDFSIterator()
+{
+	return new NullIterator<Term*>();
+}

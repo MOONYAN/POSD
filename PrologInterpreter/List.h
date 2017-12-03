@@ -23,4 +23,5 @@ public:
 	virtual bool match(Term & other) override;
 	virtual bool tryAssign(Term & other) override;
 	virtual Iterator<Term*>* createIterator() override;
+	virtual Iterator<Term*>* createDFSIterator() override;
 };

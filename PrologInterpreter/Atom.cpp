@@ -35,3 +35,8 @@ Iterator<Term*>* Atom::createIterator()
 {
 	return new NullIterator<Term*>();
 }
+
+Iterator<Term*>* Atom::createDFSIterator()
+{
+	return new NullIterator<Term*>();
+}
