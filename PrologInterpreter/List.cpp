@@ -1,5 +1,6 @@
 #include "List.h"
 #include "ListIterator.h"
+#include "DFSIterator.h"
 
 Term * List::head() const
 {
@@ -100,5 +101,5 @@ Iterator<Term*>* List::createIterator()
 
 Iterator<Term*>* List::createDFSIterator()
 {
-	return nullptr;
+	return new DFSIterator(this);
 }
