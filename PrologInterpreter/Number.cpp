@@ -41,3 +41,8 @@ bool Number::tryAssign(Term& other)
 {
 	return false;
 }
+
+Iterator<Term*>* Number::createIterator()
+{
+	return new NullIterator<Term*>();
+}
