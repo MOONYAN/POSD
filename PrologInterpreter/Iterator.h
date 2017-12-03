@@ -1,5 +1,4 @@
 #pragma once
-#include "Term.h"
 
 template<class T>
 class Iterator
