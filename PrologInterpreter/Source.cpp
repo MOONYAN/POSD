@@ -8,6 +8,7 @@
 #include "utLeaf.h"
 #include "utParser.h"
 #include "utBuilder.h"
+#include "utIterator.h"
 
 int main(int argc, char** argv)
 {

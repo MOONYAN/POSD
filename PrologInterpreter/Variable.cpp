@@ -46,3 +46,18 @@ bool Variable::tryAssign(Term& other)
 {
 	return this->match(other);
 }
+
+Iterator<Term*>* Variable::createIterator()
+{
+	return new NullIterator<Term*>();
+}
+
+Iterator<Term*>* Variable::createDFSIterator()
+{
+	return new NullIterator<Term*>();
+}
+
+Iterator<Term*>* Variable::createBFSIterator()
+{
+	return new NullIterator<Term*>();
+}

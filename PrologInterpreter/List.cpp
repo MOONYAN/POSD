@@ -1,4 +1,7 @@
 #include "List.h"
+#include "ListIterator.h"
+#include "DFSIterator.h"
+#include "BFSIterator.h"
 
 Term * List::head() const
 {
@@ -42,6 +45,16 @@ int List::getChildCount()
 	return _elements.size();
 }
 
+int List::arity()
+{
+	return _elements.size();
+}
+
+Term * List::args(int index)
+{
+	return _elements[index];
+}
+
 string List::symbol() const
 {
 	stringstream ss;
@@ -80,4 +93,19 @@ bool List::match(Term & other)
 bool List::tryAssign(Term & other)
 {
 	return false;
+}
+
+Iterator<Term*>* List::createIterator()
+{
+	return new ListIterator(this);
+}
+
+Iterator<Term*>* List::createDFSIterator()
+{
+	return new DFSIterator(this);
+}
+
+Iterator<Term*>* List::createBFSIterator()
+{
+	return new BFSIterator(this);
 }
