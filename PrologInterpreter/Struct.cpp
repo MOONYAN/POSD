@@ -1,4 +1,5 @@
 #include "Struct.h"
+#include "StructIterator.h"
 
 Struct::Struct(Atom name, vector<Term*> childs) :_name(name), _childs(childs)
 {	
@@ -91,5 +92,5 @@ bool Struct::tryAssign(Term & other)
 
 Iterator<Term*>* Struct::createIterator()
 {
-	return nullptr;
+	return new StructIterator(this);
 }

@@ -148,6 +148,7 @@
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="Struct.h" />
+    <ClInclude Include="StructIterator.h" />
     <ClInclude Include="Term.h" />
     <ClInclude Include="utBuilder.h" />
     <ClInclude Include="utIterator.h" />
