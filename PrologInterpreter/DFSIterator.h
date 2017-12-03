@@ -3,7 +3,7 @@
 #include "Term.h"
 #include <vector>
 
-class DFSIterator : Iterator<Term*>
+class DFSIterator : public Iterator<Term*>
 {
 public:
 	DFSIterator(Term* term) :_root(term) 
@@ -28,13 +28,13 @@ public:
 	}
 	virtual bool isDone() const override
 	{
-		return _index >= _terms.size();
+		return _index >= (int)_terms.size();
 	}
 
 	void dfs(Term* root)
 	{
 		Iterator<Term*> *it = root->createIterator();
-		for (it->first(); it->isDone(); it->next())
+		for (it->first(); !it->isDone(); it->next())
 		{
 			Term* child = it->currentItem();
 			_terms.push_back(child);
