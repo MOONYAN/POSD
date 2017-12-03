@@ -56,3 +56,8 @@ Iterator<Term*>* Variable::createDFSIterator()
 {
 	return new NullIterator<Term*>();
 }
+
+Iterator<Term*>* Variable::createBFSIterator()
+{
+	return new NullIterator<Term*>();
+}

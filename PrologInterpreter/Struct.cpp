@@ -100,3 +100,8 @@ Iterator<Term*>* Struct::createDFSIterator()
 {
 	return new DFSIterator(this);
 }
+
+Iterator<Term*>* Struct::createBFSIterator()
+{
+	return nullptr;
+}
