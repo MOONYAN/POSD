@@ -52,7 +52,7 @@ Leaf * Scanner::peekNextLeaf()
 list<pair<string, regex>> Scanner::_regexs = {
 	{ "EndOfClause", regex({ "^\\.$" }) },
 	{ "Variable", regex({ "^[A-Z_]\\w*" }) },
-	{ "Atom", regex({ "^[.a-z][.a-zA-z0-9_]*" }) },
+	{ "Atom", regex({ "^[.a-z][.a-zA-Z0-9_]*" }) },
 	{ "Number", regex({ "^(\\+|-)?(\\d+(\\.\\d+)?)" }) },
 	{ "Comma", regex({ "^," }) },
 	{ "Semicolon", regex({ "^;" }) },
