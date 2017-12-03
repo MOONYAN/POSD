@@ -87,3 +87,27 @@ TEST(iterator, StructDFS1)
 	iterator->next();
 	ASSERT_TRUE(iterator->isDone());
 }
+
+//[[x00, x01], [x10, x11]]
+TEST(iterator, ListDFS1)
+{
+	Scanner scanner("[[x00, x01], [x10, x11]]");
+	Parser parser(scanner);
+	Term* root = parser.createTerm();
+	ASSERT_EQ("[[x00, x01], [x10, x11]]", root->symbol());
+	Iterator<Term*> *iterator = root->createDFSIterator();
+	iterator->first();
+	ASSERT_EQ("[x00, x01]", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x00", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x01", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("[x10, x11]", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x10", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_EQ("x11", iterator->currentItem()->symbol());
+	iterator->next();
+	ASSERT_TRUE(iterator->isDone());
+}
