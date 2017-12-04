@@ -32,6 +32,82 @@ TEST(iterator, Variable)
 	ASSERT_TRUE(iterator->isDone());
 }
 
+//s(1,t(X,2),Y).
+TEST(iterator, first) {
+	Number one(1);
+	Variable X("X");
+	Variable Y("Y");
+	Number two(2);
+	Struct t(Atom("t"), { &X, &two });
+	Struct s(Atom("s"), { &one, &t, &Y });
+	// StructIterator it(&s);
+	Iterator<Term*>* itStruct = s.createIterator();
+	// Iterator& itStruct = it;
+	// ASSERT_EQ(it.first()->symbol());
+	itStruct->first();
+	ASSERT_EQ("1", itStruct->currentItem()->symbol());
+	ASSERT_FALSE(itStruct->isDone());
+	itStruct->next();
+	ASSERT_EQ("t(X, 2)", itStruct->currentItem()->symbol());
+	ASSERT_FALSE(itStruct->isDone());
+	itStruct->next();
+	ASSERT_EQ("Y", itStruct->currentItem()->symbol());
+	itStruct->next();
+	ASSERT_TRUE(itStruct->isDone());
+}
+
+//s(1,t(X,2),Y).
+TEST(iterator, nested_iterator) {
+	Number one(1);
+	Variable X("X");
+	Variable Y("Y");
+	Number two(2);
+	Struct t(Atom("t"), { &X, &two });
+	Struct s(Atom("s"), { &one, &t, &Y });
+	Iterator<Term*>* it = s.createIterator();
+	it->first();
+	it->next();
+
+	Iterator<Term*>* it2 = it->currentItem()->createIterator();
+	it2->first();
+	ASSERT_EQ("X", it2->currentItem()->symbol());
+	ASSERT_FALSE(it2->isDone());
+	it2->next();
+	ASSERT_EQ("2", it2->currentItem()->symbol());
+	ASSERT_FALSE(it2->isDone());
+	it2->next();
+	ASSERT_TRUE(it2->isDone());
+}
+
+//[1,t(X,2),Y].
+TEST(iterator, firstList) {
+	Number one(1);
+	Variable X("X");
+	Variable Y("Y");
+	Number two(2);
+	Struct t(Atom("t"), { &X, &two });
+	List l({ &one, &t, &Y });
+	Iterator<Term*>* itList = l.createIterator();
+	itList->first();
+	ASSERT_EQ("1", itList->currentItem()->symbol());
+	ASSERT_FALSE(itList->isDone());
+	itList->next();
+	ASSERT_EQ("t(X, 2)", itList->currentItem()->symbol());
+	ASSERT_FALSE(itList->isDone());
+	itList->next();
+	ASSERT_EQ("Y", itList->currentItem()->symbol());
+	itList->next();
+	ASSERT_TRUE(itList->isDone());
+}
+
+//1
+TEST(iterator, NullIterator) {
+	Number one(1);
+	Iterator<Term*> *nullIterator = one.createIterator();
+	nullIterator->first();
+	ASSERT_TRUE(nullIterator->isDone());
+}
+
 TEST(iterator, List) {
 	Variable X("X");
 	Variable Y("Y");
@@ -128,7 +204,7 @@ TEST(iterator, StructBFS1)
 	ASSERT_EQ("x00", iterator->currentItem()->symbol());
 	iterator->next();
 	ASSERT_EQ("x01", iterator->currentItem()->symbol());
-	iterator->next();	
+	iterator->next();
 	ASSERT_EQ("x10", iterator->currentItem()->symbol());
 	iterator->next();
 	ASSERT_EQ("x11", iterator->currentItem()->symbol());
@@ -151,7 +227,7 @@ TEST(iterator, ListBFS1)
 	iterator->next();
 	ASSERT_EQ("x00", iterator->currentItem()->symbol());
 	iterator->next();
-	ASSERT_EQ("x01", iterator->currentItem()->symbol());	
+	ASSERT_EQ("x01", iterator->currentItem()->symbol());
 	iterator->next();
 	ASSERT_EQ("x10", iterator->currentItem()->symbol());
 	iterator->next();
