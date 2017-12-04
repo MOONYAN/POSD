@@ -100,6 +100,14 @@ TEST(iterator, firstList) {
 	ASSERT_TRUE(itList->isDone());
 }
 
+//1
+TEST(iterator, NullIterator) {
+	Number one(1);
+	Iterator<Term*> *nullIterator = one.createIterator();
+	nullIterator->first();
+	ASSERT_TRUE(nullIterator->isDone());
+}
+
 TEST(iterator, List) {
 	Variable X("X");
 	Variable Y("Y");
