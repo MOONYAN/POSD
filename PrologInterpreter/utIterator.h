@@ -32,6 +32,30 @@ TEST(iterator, Variable)
 	ASSERT_TRUE(iterator->isDone());
 }
 
+//s(1,t(X,2),Y).
+TEST(iterator, first) {
+	Number one(1);
+	Variable X("X");
+	Variable Y("Y");
+	Number two(2);
+	Struct t(Atom("t"), { &X, &two });
+	Struct s(Atom("s"), { &one, &t, &Y });
+	// StructIterator it(&s);
+	Iterator<Term*>* itStruct = s.createIterator();
+	// Iterator& itStruct = it;
+	// ASSERT_EQ(it.first()->symbol());
+	itStruct->first();
+	ASSERT_EQ("1", itStruct->currentItem()->symbol());
+	ASSERT_FALSE(itStruct->isDone());
+	itStruct->next();
+	ASSERT_EQ("t(X, 2)", itStruct->currentItem()->symbol());
+	ASSERT_FALSE(itStruct->isDone());
+	itStruct->next();
+	ASSERT_EQ("Y", itStruct->currentItem()->symbol());
+	itStruct->next();
+	ASSERT_TRUE(itStruct->isDone());
+}
+
 TEST(iterator, List) {
 	Variable X("X");
 	Variable Y("Y");
