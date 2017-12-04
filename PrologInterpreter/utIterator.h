@@ -79,6 +79,27 @@ TEST(iterator, nested_iterator) {
 	ASSERT_TRUE(it2->isDone());
 }
 
+//[1,t(X,2),Y].
+TEST(iterator, firstList) {
+	Number one(1);
+	Variable X("X");
+	Variable Y("Y");
+	Number two(2);
+	Struct t(Atom("t"), { &X, &two });
+	List l({ &one, &t, &Y });
+	Iterator<Term*>* itList = l.createIterator();
+	itList->first();
+	ASSERT_EQ("1", itList->currentItem()->symbol());
+	ASSERT_FALSE(itList->isDone());
+	itList->next();
+	ASSERT_EQ("t(X, 2)", itList->currentItem()->symbol());
+	ASSERT_FALSE(itList->isDone());
+	itList->next();
+	ASSERT_EQ("Y", itList->currentItem()->symbol());
+	itList->next();
+	ASSERT_TRUE(itList->isDone());
+}
+
 TEST(iterator, List) {
 	Variable X("X");
 	Variable Y("Y");
