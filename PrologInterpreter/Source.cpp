@@ -9,6 +9,7 @@
 #include "utParser.h"
 #include "utBuilder.h"
 #include "utIterator.h"
+#include "utExp.h"
 
 int main(int argc, char** argv)
 {

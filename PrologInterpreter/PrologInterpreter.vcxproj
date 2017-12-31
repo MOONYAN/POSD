@@ -139,6 +139,7 @@
     <ClInclude Include="BFSIterator.h" />
     <ClInclude Include="Builder.h" />
     <ClInclude Include="DFSIterator.h" />
+    <ClInclude Include="Exp.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="Leaf.h" />
@@ -153,6 +154,7 @@
     <ClInclude Include="StructIterator.h" />
     <ClInclude Include="Term.h" />
     <ClInclude Include="utBuilder.h" />
+    <ClInclude Include="utExp.h" />
     <ClInclude Include="utIterator.h" />
     <ClInclude Include="utLeaf.h" />
     <ClInclude Include="utList.h" />
