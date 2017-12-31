@@ -69,3 +69,11 @@ TEST(Exp, buildDisjunctionExp) {
 	ASSERT_TRUE(p.getExpressionTree());
 	ASSERT_TRUE(p.getExpressionTree()->evaluate());
 }
+
+TEST(Exp, buildDisjunctionExpFail) {
+	Scanner s("2 = 1; Y = 2, 1 = 3.");
+	Parser p(s);
+	p.buildExpression();
+	ASSERT_TRUE(p.getExpressionTree());
+	ASSERT_FALSE(p.getExpressionTree()->evaluate());
+}
