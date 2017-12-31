@@ -12,18 +12,22 @@ TEST(Exp, TestBoolExp)
 
 TEST(Exp, TestDisjExp)
 {
-	ASSERT_FALSE(DisjExp(&BoolExp(false), &BoolExp(false)).evaluate());
-	ASSERT_TRUE(DisjExp(&BoolExp(true), &BoolExp(false)).evaluate());
-	ASSERT_TRUE(DisjExp(&BoolExp(false), &BoolExp(true)).evaluate());
-	ASSERT_TRUE(DisjExp(&BoolExp(true), &BoolExp(true)).evaluate());
+	BoolExp trueExp(true);
+	BoolExp falseExp(false);
+	ASSERT_FALSE(DisjExp(&falseExp, &falseExp).evaluate());
+	ASSERT_TRUE(DisjExp(&trueExp, &falseExp).evaluate());
+	ASSERT_TRUE(DisjExp(&falseExp, &trueExp).evaluate());
+	ASSERT_TRUE(DisjExp(&trueExp, &trueExp).evaluate());
 }
 
 TEST(Exp, TestConjExp)
 {
-	ASSERT_FALSE(ConjExp(&BoolExp(false), &BoolExp(false)).evaluate());
-	ASSERT_FALSE(ConjExp(&BoolExp(true), &BoolExp(false)).evaluate());
-	ASSERT_FALSE(ConjExp(&BoolExp(false), &BoolExp(true)).evaluate());
-	ASSERT_TRUE(ConjExp(&BoolExp(true), &BoolExp(true)).evaluate());
+	BoolExp trueExp(true);
+	BoolExp falseExp(false);
+	ASSERT_FALSE(ConjExp(&falseExp, &falseExp).evaluate());
+	ASSERT_FALSE(ConjExp(&trueExp, &falseExp).evaluate());
+	ASSERT_FALSE(ConjExp(&falseExp, &trueExp).evaluate());
+	ASSERT_TRUE(ConjExp(&trueExp, &trueExp).evaluate());
 }
 
 TEST(Exp, matchExp) {
