@@ -14,3 +14,11 @@ TEST(Exp, TestDisjExp)
 	ASSERT_TRUE(DisjExp(&BoolExp(false), &BoolExp(true)).evaluate());
 	ASSERT_TRUE(DisjExp(&BoolExp(true), &BoolExp(true)).evaluate());
 }
+
+TEST(Exp, TestConjExp)
+{
+	ASSERT_FALSE(ConjExp(&BoolExp(false), &BoolExp(false)).evaluate());
+	ASSERT_FALSE(ConjExp(&BoolExp(true), &BoolExp(false)).evaluate());
+	ASSERT_FALSE(ConjExp(&BoolExp(false), &BoolExp(true)).evaluate());
+	ASSERT_TRUE(ConjExp(&BoolExp(true), &BoolExp(true)).evaluate());
+}
