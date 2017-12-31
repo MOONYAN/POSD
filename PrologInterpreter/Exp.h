@@ -51,3 +51,15 @@ private:
 	Exp * _left;
 	Exp * _right;
 };
+
+class BoolExp : public Exp
+{
+public:
+	BoolExp(bool value) :_value(value) {}
+	bool evaluate() override
+	{
+		return _value;
+	}
+private:
+	bool _value;
+};
