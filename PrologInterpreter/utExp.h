@@ -37,3 +37,11 @@ TEST(Exp, matchExp) {
 	ASSERT_TRUE(mExp.evaluate());
 	ASSERT_EQ("tom", X.value());
 }
+
+TEST(Exp, buildExp) {
+	Scanner s("tom=X.");
+	Parser p(s);
+	p.buildExpression();
+	ASSERT_TRUE(p.getExpressionTree());
+	ASSERT_TRUE(p.getExpressionTree()->evaluate());
+}
