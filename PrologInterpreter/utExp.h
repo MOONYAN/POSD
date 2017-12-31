@@ -45,3 +45,11 @@ TEST(Exp, buildExp) {
 	ASSERT_TRUE(p.getExpressionTree());
 	ASSERT_TRUE(p.getExpressionTree()->evaluate());
 }
+
+TEST(Exp, buildConjunctionExp) {
+	Scanner s("Y = 2, Z = 3.");
+	Parser p(s);
+	p.buildExpression();
+	ASSERT_TRUE(p.getExpressionTree());
+	ASSERT_TRUE(p.getExpressionTree()->evaluate());
+}
