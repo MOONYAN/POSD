@@ -139,6 +139,7 @@
     <ClInclude Include="BFSIterator.h" />
     <ClInclude Include="Builder.h" />
     <ClInclude Include="DFSIterator.h" />
+    <ClInclude Include="Exp.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="Leaf.h" />
