@@ -44,7 +44,7 @@ public:
 
 	bool evaluate(MatchingReporter* reporter = new MatchingReporter()) override
 	{
-		return (_left->evaluate() && _right->evaluate());
+		return (_left->evaluate(reporter) && _right->evaluate(reporter));
 	}
 
 private:
