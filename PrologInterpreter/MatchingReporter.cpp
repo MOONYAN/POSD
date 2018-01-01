@@ -62,6 +62,10 @@ MatchingReporter::~MatchingReporter()
 string MatchingReporter::getResult()
 {
 	stringstream ss;
+	if (_termMap.size() != 0)
+	{
+		nextLayer();
+	}
 	if (_termMaps.size() == 0)
 	{
 		ss << "false.";
