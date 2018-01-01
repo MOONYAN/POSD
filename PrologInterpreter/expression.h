@@ -363,18 +363,3 @@ TEST(Shell, disjunctionMatching6) {
 		FAIL() << msg;
 	}
 }
-
-TEST(Shell, exceptionMissingPeriodToken) {
-	Scanner s("X=1");
-	Parser p(s);
-	try {
-		p.buildExpression();
-		MatchingReporter reporter;
-		p.getExpressionTree()->evaluate(&reporter);
-		string result = reporter.getResult();
-		FAIL() << "It should throw an exception: Missing token '.'";
-	}
-	catch (std::string &msg) {
-		ASSERT_EQ("Missing token '.'", msg);
-	}
-}

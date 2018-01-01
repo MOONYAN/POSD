@@ -58,10 +58,16 @@ void Parser::restDisjunctionMatch()
 void Parser::conjunctionMatch()
 {
 	Term* left = createTerm();
+	if (left == nullptr) {
+		throw string("Missing token 'Term'");
+	}
 	if (_scanner->getNextLeaf()->getTokenType() != "Match") {
 		throw string("Missing token '='");
 	}
 	Term* right = createTerm();
+	if (right == nullptr) {
+		throw string("Missing token 'Term'");
+	}
 	_expStack.push(new MatchExp(left, right));
 }
 
