@@ -349,23 +349,21 @@ TEST(Shell, disjunctionMatching5) {
 	}
 }
 
-//TEST(Shell, disjunctionMatching6) {
-//	Scanner s("X=1; X=1, X=2; Z=3.");
-//	Parser p(s);
-//	try {
-//		p.buildExpression();
-//
-//		/**
-//		*  maybe your implementation here.
-//		*/
-//
-//		ASSERT_EQ("X = 1; Z = 3.", result);
-//	}
-//	catch (std::string &msg) {
-//		FAIL() << msg;
-//	}
-//}
-//
+TEST(Shell, disjunctionMatching6) {
+	Scanner s("X=1; X=1, X=2; Z=3.");
+	Parser p(s);
+	try {
+		p.buildExpression();
+		MatchingReporter reporter;
+		p.getExpressionTree()->evaluate(&reporter);
+		string result = reporter.getResult();
+		ASSERT_EQ("X = 1; Z = 3.", result);
+	}
+	catch (std::string &msg) {
+		FAIL() << msg;
+	}
+}
+
 //
 //TEST(Shell, exceptionMissingPeriodToken) {
 //	Scanner s("X=1");
