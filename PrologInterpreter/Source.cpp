@@ -10,6 +10,7 @@
 #include "utBuilder.h"
 #include "utIterator.h"
 #include "utExp.h"
+#include "expression.h"
 
 int main(int argc, char** argv)
 {

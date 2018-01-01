@@ -48,6 +48,9 @@
     <ClCompile Include="Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MatchingReporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utTerm.h">
@@ -135,6 +138,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="utExp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="expression.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MatchingReporter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

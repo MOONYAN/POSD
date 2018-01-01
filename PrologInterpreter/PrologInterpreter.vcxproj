@@ -126,6 +126,7 @@
     <ClCompile Include="Builder.cpp" />
     <ClCompile Include="Leaf.cpp" />
     <ClCompile Include="List.cpp" />
+    <ClCompile Include="MatchingReporter.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="Parser.cpp" />
@@ -140,11 +141,13 @@
     <ClInclude Include="Builder.h" />
     <ClInclude Include="DFSIterator.h" />
     <ClInclude Include="Exp.h" />
+    <ClInclude Include="expression.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="Leaf.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="ListIterator.h" />
+    <ClInclude Include="MatchingReporter.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NullIterator.h" />
     <ClInclude Include="Number.h" />
