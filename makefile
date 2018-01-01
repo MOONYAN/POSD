@@ -1,5 +1,5 @@
 INC_DIR = PrologInterpreter
-Target = hw7
+Target = hw8
 
 all: copyFirst compiler
 
