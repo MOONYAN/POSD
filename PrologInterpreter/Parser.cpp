@@ -181,7 +181,7 @@ void Parser::buildExpression()
 	restDisjunctionMatch();
 	if (_scanner->getNextLeaf()->getTokenType() != "EndOfClause")
 	{
-		throw string("expected token.");
+		throw string("Missing token '.'");
 	}
 }
 
