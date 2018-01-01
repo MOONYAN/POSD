@@ -44,7 +44,15 @@ public:
 
 	bool evaluate(MatchingReporter* reporter = new MatchingReporter()) override
 	{
-		return (_left->evaluate(reporter) && _right->evaluate(reporter));
+		auto doProcess = [&](Exp* exp) {
+			bool result = exp->evaluate(reporter);
+			if (!result)
+			{
+				reporter->clearPool();
+			}
+			return result;
+		};
+		return doProcess(_left) & doProcess(_right);
 	}
 
 private:
