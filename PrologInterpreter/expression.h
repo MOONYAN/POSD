@@ -18,23 +18,21 @@ TEST(Shell, varMatchAtomSuc) {
 	}
 }
 
-//TEST(Shell, atomMatchAtomFail) {
-//	Scanner s("smog=natural_disaster.");
-//	Parser p(s);
-//	try {
-//		p.buildExpression();
-//
-//		/**
-//		*  maybe your implementation here.
-//		*/
-//
-//		ASSERT_EQ("false.", result);
-//	}
-//	catch (std::string & msg) {
-//		FAIL() << msg;
-//	}
-//}
-//
+TEST(Shell, atomMatchAtomFail) {
+	Scanner s("smog=natural_disaster.");
+	Parser p(s);
+	try {
+		p.buildExpression();
+		MatchingReporter reporter;
+		p.getExpressionTree()->evaluate(&reporter);
+		string result = reporter.getResult();
+		ASSERT_EQ("false.", result);
+	}
+	catch (std::string & msg) {
+		FAIL() << msg;
+	}
+}
+
 //TEST(Shell, varMatchList) {
 //	Scanner s("Painful=[Clerk,forgot,pipette].");
 //	Parser p(s);
