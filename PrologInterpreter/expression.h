@@ -10,9 +10,6 @@ TEST(Shell, varMatchAtomSuc) {
 		p.buildExpression();
 		MatchingReporter reporter;
 		p.getExpressionTree()->evaluate(&reporter);
-		/**
-		*  maybe your implementation here.
-		*/
 		string result = reporter.getResult();
 		ASSERT_EQ("FILCO = awesome.", result);
 	}
