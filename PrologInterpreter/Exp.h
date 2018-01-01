@@ -1,10 +1,15 @@
 #pragma once
 
 #include "Term.h"
+#include "MatchingReporter.h"
 
 class Exp {
 public:
 	virtual bool evaluate() = 0;
+	virtual bool evaluate(MatchingReporter* reporter) 
+	{
+		return evaluate();
+	}
 };
 
 class MatchExp : public Exp
