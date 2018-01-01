@@ -198,23 +198,21 @@ TEST(Shell, conjunctionMatching_expAndtrue) {
 	}
 }
 
-//TEST(Shell, conjunctionMatching_trueAndfalse) {
-//	Scanner s("X=X, 1=2.");
-//	Parser p(s);
-//	try {
-//		p.buildExpression();
-//
-//		/**
-//		*  maybe your implementation here.
-//		*/
-//
-//		ASSERT_EQ("false.", result);
-//	}
-//	catch (std::string &msg) {
-//		FAIL() << msg;
-//	}
-//}
-//
+TEST(Shell, conjunctionMatching_trueAndfalse) {
+	Scanner s("X=X, 1=2.");
+	Parser p(s);
+	try {
+		p.buildExpression();
+		MatchingReporter reporter;
+		p.getExpressionTree()->evaluate(&reporter);
+		string result = reporter.getResult();
+		ASSERT_EQ("false.", result);
+	}
+	catch (std::string &msg) {
+		FAIL() << msg;
+	}
+}
+
 //TEST(Shell, conjunctionMatching_falseAndtrue) {
 //	Scanner s("3=2, X=X.");
 //	Parser p(s);
