@@ -273,24 +273,22 @@ TEST(Shell, conjunctionMatching) {
 	}
 }
 
-//
-//TEST(Shell, disjunctionMatching1) {
-//	Scanner s("X=1; X=2.");
-//	Parser p(s);
-//	try {
-//		p.buildExpression();
-//
-//		/**
-//		*  maybe your implementation here.
-//		*/
-//
-//		ASSERT_EQ("X = 1; X = 2.", result);
-//	}
-//	catch (std::string &msg) {
-//		FAIL() << msg;
-//	}
-//}
-//
+
+TEST(Shell, disjunctionMatching1) {
+	Scanner s("X=1; X=2.");
+	Parser p(s);
+	try {
+		p.buildExpression();
+		MatchingReporter reporter;
+		p.getExpressionTree()->evaluate(&reporter);
+		string result = reporter.getResult();
+		ASSERT_EQ("X = 1; X = 2.", result);
+	}
+	catch (std::string &msg) {
+		FAIL() << msg;
+	}
+}
+
 //TEST(Shell, disjunctionMatching2) {
 //	Scanner s("X=1; X=1, X=2.");
 //	Parser p(s);

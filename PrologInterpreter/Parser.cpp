@@ -36,6 +36,7 @@ Node * Parser::createTree()
 
 void Parser::disjunctionMatch()
 {
+	_builder.clearPool();
 	conjunctionMatch();
 	restConjunctionMatch();
 }
