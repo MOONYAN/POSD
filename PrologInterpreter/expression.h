@@ -48,23 +48,21 @@ TEST(Shell, varMatchList) {
 	}
 }
 
-//TEST(Shell, varMatchStruct) {
-//	Scanner s("Pitiful=binding([rope,rope,rope], Turtle, oil).");
-//	Parser p(s);
-//	try {
-//		p.buildExpression();
-//
-//		/**
-//		*  maybe your implementation here.
-//		*/
-//
-//		ASSERT_EQ("Pitiful = binding([rope, rope, rope], Turtle, oil).", result);
-//	}
-//	catch (std::string &msg) {
-//		FAIL() << msg;
-//	}
-//}
-//
+TEST(Shell, varMatchStruct) {
+	Scanner s("Pitiful=binding([rope,rope,rope], Turtle, oil).");
+	Parser p(s);
+	try {
+		p.buildExpression();
+		MatchingReporter reporter;
+		p.getExpressionTree()->evaluate(&reporter);
+		string result = reporter.getResult();
+		ASSERT_EQ("Pitiful = binding([rope, rope, rope], Turtle, oil).", result);
+	}
+	catch (std::string &msg) {
+		FAIL() << msg;
+	}
+}
+
 //TEST(Shell, varMatchItself) {
 //	Scanner s("Taiwan=Taiwan.");
 //	Parser p(s);
