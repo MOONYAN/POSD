@@ -126,6 +126,7 @@
     <ClCompile Include="Builder.cpp" />
     <ClCompile Include="Leaf.cpp" />
     <ClCompile Include="List.cpp" />
+    <ClCompile Include="MatchingReporter.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="Parser.cpp" />
@@ -139,11 +140,15 @@
     <ClInclude Include="BFSIterator.h" />
     <ClInclude Include="Builder.h" />
     <ClInclude Include="DFSIterator.h" />
+    <ClInclude Include="exception.h" />
+    <ClInclude Include="Exp.h" />
+    <ClInclude Include="expression.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="Leaf.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="ListIterator.h" />
+    <ClInclude Include="MatchingReporter.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NullIterator.h" />
     <ClInclude Include="Number.h" />
@@ -153,6 +158,7 @@
     <ClInclude Include="StructIterator.h" />
     <ClInclude Include="Term.h" />
     <ClInclude Include="utBuilder.h" />
+    <ClInclude Include="utExp.h" />
     <ClInclude Include="utIterator.h" />
     <ClInclude Include="utLeaf.h" />
     <ClInclude Include="utList.h" />

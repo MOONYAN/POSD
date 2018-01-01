@@ -26,12 +26,63 @@ Node * Parser::createTree()
 	{
 		root = new Node(COMMA, nullptr, operateor, this->createTree());
 	}
-	else if(leaf->getTokenType() == "Semicolon")
+	else if (leaf->getTokenType() == "Semicolon")
 	{
 		_builder.clearPool();
 		root = new Node(SEMICOLON, nullptr, operateor, this->createTree());
 	}
 	return root;
+}
+
+void Parser::disjunctionMatch()
+{
+	_builder.clearPool();
+	conjunctionMatch();
+	restConjunctionMatch();
+}
+
+void Parser::restDisjunctionMatch()
+{
+	if (_scanner->peekNextLeaf()->getTokenType() == "Semicolon") {
+		_scanner->getNextLeaf();
+		disjunctionMatch();
+		restDisjunctionMatch();
+		Exp* right = _expStack.top();
+		_expStack.pop();
+		Exp* left = _expStack.top();
+		_expStack.pop();
+		_expStack.push(new DisjExp(left, right));
+	}	
+}
+
+void Parser::conjunctionMatch()
+{
+	Term* left = createTerm();
+	if (left == nullptr) {
+		throw string("Missing token 'Term'");
+	}
+	if (_scanner->getNextLeaf()->getTokenType() != "Match") {
+		throw string("Missing token '='");
+	}
+	Term* right = createTerm();
+	if (right == nullptr) {
+		throw string("Missing token 'Term'");
+	}
+	_expStack.push(new MatchExp(left, right));
+}
+
+void Parser::restConjunctionMatch()
+{
+	if (_scanner->peekNextLeaf()->getTokenType() == "Comma") {
+		_scanner->getNextLeaf();
+		conjunctionMatch();
+		restConjunctionMatch();
+		Exp* right = _expStack.top();
+		_expStack.pop();
+		Exp* left = _expStack.top();
+		_expStack.pop();
+		_expStack.push(new ConjExp(left, right));
+	}
 }
 
 Parser::Parser(Scanner & scanner) :_scanner(&scanner)
@@ -128,4 +179,19 @@ void Parser::matchings()
 Node * Parser::expressionTree()
 {
 	return _treeRoot;
+}
+
+void Parser::buildExpression()
+{
+	disjunctionMatch();
+	restDisjunctionMatch();
+	if (_scanner->getNextLeaf()->getTokenType() != "EndOfClause")
+	{
+		throw string("Missing token '.'");
+	}
+}
+
+Exp * Parser::getExpressionTree()
+{
+	return _expStack.top();
 }
