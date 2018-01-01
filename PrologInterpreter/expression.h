@@ -93,24 +93,22 @@ TEST(Shell, varMachingListThatIncludeVar) {
 	}
 }
 
-//TEST(Shell, varMachingStructThatIncludeVar) {
-//	Scanner s("X=s(Y,marry), Y=tom.");
-//	Parser p(s);
-//	try {
-//		p.buildExpression();
-//
-//		/**
-//		*  maybe your implementation here.
-//		*/
-//
-//		ASSERT_EQ("X = s(tom, marry), Y = tom.", result);
-//	}
-//	catch (std::string &msg) {
-//		FAIL() << msg;
-//	}
-//}
-//
-//
+TEST(Shell, varMachingStructThatIncludeVar) {
+	Scanner s("X=s(Y,marry), Y=tom.");
+	Parser p(s);
+	try {
+		p.buildExpression();
+		MatchingReporter reporter;
+		p.getExpressionTree()->evaluate(&reporter);
+		string result = reporter.getResult();
+		ASSERT_EQ("X = s(tom, marry), Y = tom.", result);
+	}
+	catch (std::string &msg) {
+		FAIL() << msg;
+	}
+}
+
+
 //TEST(Shell, conjunctionMatching_false) {
 //	Scanner s("X=1, X=2.");
 //	Parser p(s);
