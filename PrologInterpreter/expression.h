@@ -228,23 +228,21 @@ TEST(Shell, conjunctionMatching_falseAndtrue) {
 	}
 }
 
-//TEST(Shell, conjunctionMatching_falseAndfalse) {
-//	Scanner s("X=1, X=2, 1=2.");
-//	Parser p(s);
-//	try {
-//		p.buildExpression();
-//
-//		/**
-//		*  maybe your implementation here.
-//		*/
-//
-//		ASSERT_EQ("false.", result);
-//	}
-//	catch (std::string &msg) {
-//		FAIL() << msg;
-//	}
-//}
-//
+TEST(Shell, conjunctionMatching_falseAndfalse) {
+	Scanner s("X=1, X=2, 1=2.");
+	Parser p(s);
+	try {
+		p.buildExpression();
+		MatchingReporter reporter;
+		p.getExpressionTree()->evaluate(&reporter);
+		string result = reporter.getResult();
+		ASSERT_EQ("false.", result);
+	}
+	catch (std::string &msg) {
+		FAIL() << msg;
+	}
+}
+
 //TEST(Shell, conjunctionMatching_duplicateExp) {
 //	Scanner s("Y=1, X=2, X=2.");
 //	Parser p(s);
