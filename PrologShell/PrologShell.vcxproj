@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -20,14 +20,13 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{66916AE6-8518-4DBA-9A11-2EE63F89EEE1}</ProjectGuid>
-    <RootNamespace>PrologInterpreter</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
-    <ProjectName>PrologInterpreter</ProjectName>
+    <ProjectGuid>{E46B7FE2-2A4B-4BF2-9A6D-3923EF29C44C}</ProjectGuid>
+    <RootNamespace>PrologShell</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -70,9 +69,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\GTEST\gtest-1.8.0\include;C:\GTEST\gtest-1.8.0;$(IncludePath)</IncludePath>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -117,11 +114,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GoogleTest\GoogleTest.vcxproj">
-      <Project>{b683ccbb-dc4a-4ce1-a120-01645b5fae1f}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="Atom.cpp" />
     <ClCompile Include="Builder.cpp" />
     <ClCompile Include="Leaf.cpp" />
@@ -131,7 +123,7 @@
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Scanner.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Shell.cpp" />
     <ClCompile Include="Struct.cpp" />
     <ClCompile Include="Variable.cpp" />
   </ItemGroup>
@@ -140,10 +132,7 @@
     <ClInclude Include="BFSIterator.h" />
     <ClInclude Include="Builder.h" />
     <ClInclude Include="DFSIterator.h" />
-    <ClInclude Include="exception.h" />
     <ClInclude Include="Exp.h" />
-    <ClInclude Include="expression.h" />
-    <ClInclude Include="global.h" />
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="Leaf.h" />
     <ClInclude Include="List.h" />
@@ -157,16 +146,6 @@
     <ClInclude Include="Struct.h" />
     <ClInclude Include="StructIterator.h" />
     <ClInclude Include="Term.h" />
-    <ClInclude Include="utBuilder.h" />
-    <ClInclude Include="utExp.h" />
-    <ClInclude Include="utIterator.h" />
-    <ClInclude Include="utLeaf.h" />
-    <ClInclude Include="utList.h" />
-    <ClInclude Include="utParser.h" />
-    <ClInclude Include="utScanner.h" />
-    <ClInclude Include="utStruct.h" />
-    <ClInclude Include="utTerm.h" />
-    <ClInclude Include="utVariable.h" />
     <ClInclude Include="Variable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
