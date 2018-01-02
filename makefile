@@ -1,7 +1,9 @@
 INC_DIR = PrologInterpreter
 Target = hw8
+INC_DIR_Shell = PrologShell
+TargetShell= shell
 
-all: copyFirst compiler
+all: copyFirst compiler compilerShell
 
 copyFirst:
 ifeq (${OS}, Windows_NT)
@@ -18,9 +20,19 @@ else
 	g++ -o $(Target) *.o -lgtest -lpthread
 endif
 
+compilerShell:
+	g++ -std=gnu++0x -c ${INC_DIR_Shell}/Shell.cpp
+ifeq (${OS}, Windows_NT)
+	del Source.o
+	g++ -o $(TargetShell) *.o -lgtest
+else
+	rm -f Source.o
+	g++ -o $(TargetShell) *.o -lgtest -lpthread
+endif
+
 clean:	
 ifeq (${OS}, Windows_NT)
 	del *.o *.exe
 else
-	rm -f *.o $(Target)
+	rm -f *.o $(Target) $(TargetShell)
 endif
