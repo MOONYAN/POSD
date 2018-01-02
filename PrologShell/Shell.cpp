@@ -1,8 +1,10 @@
-#include "../PrologInterpreter/Scanner.h"
-#include "../PrologInterpreter/Parser.h"
-#include "../PrologInterpreter/MatchingReporter.h"
+#include "Scanner.h"
+#include "Parser.h"
+#include "MatchingReporter.h"
 #include <iostream>
 #include <regex>
+
+using namespace std;
 
 int main()
 {
@@ -18,13 +20,25 @@ int main()
 	};
 
 	auto tryExexute = [](string clause) {
-		cout << clause << endl;
+		Scanner s(clause);
+		Parser p(s);
+		try {
+			p.buildExpression();
+			MatchingReporter reporter;
+			p.getExpressionTree()->evaluate(&reporter);
+			string result = reporter.getResult();
+			cout << result << endl;
+		}
+		catch (std::string &msg) {
+			cout << msg << endl;
+		}
 	};
 
 	for (cout << "?-", cin >> input; !isMatchHalt(); cin >> input)
 	{
 		if (isEndOfClause())
 		{
+			ss << input;
 			tryExexute(ss.str());
 			ss = stringstream();
 			cout << "?-";
@@ -35,7 +49,7 @@ int main()
 			cout << "| ";
 		}
 	}
-	cout << "exit";
+	cout << "exit" << endl;
 
 	return 0;
 }

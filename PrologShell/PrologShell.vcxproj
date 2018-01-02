@@ -114,7 +114,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Atom.cpp" />
+    <ClCompile Include="Builder.cpp" />
+    <ClCompile Include="Leaf.cpp" />
+    <ClCompile Include="List.cpp" />
+    <ClCompile Include="MatchingReporter.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Number.cpp" />
+    <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="Shell.cpp" />
+    <ClCompile Include="Struct.cpp" />
+    <ClCompile Include="Variable.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Atom.h" />
+    <ClInclude Include="BFSIterator.h" />
+    <ClInclude Include="Builder.h" />
+    <ClInclude Include="DFSIterator.h" />
+    <ClInclude Include="Exp.h" />
+    <ClInclude Include="Iterator.h" />
+    <ClInclude Include="Leaf.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="ListIterator.h" />
+    <ClInclude Include="MatchingReporter.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="NullIterator.h" />
+    <ClInclude Include="Number.h" />
+    <ClInclude Include="Parser.h" />
+    <ClInclude Include="Scanner.h" />
+    <ClInclude Include="Struct.h" />
+    <ClInclude Include="StructIterator.h" />
+    <ClInclude Include="Term.h" />
+    <ClInclude Include="Variable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
