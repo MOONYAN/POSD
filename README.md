@@ -1,6 +1,6 @@
 # POSD
 
-As project for practicing GOF design pattern that refers to Prolog about term matching.
+As a project for practicing GOF design patterns that refers to Prolog about term matching.
 
 ## Feature
 
