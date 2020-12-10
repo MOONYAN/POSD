@@ -23,3 +23,7 @@ As project for practicing GOF design pattern that refers to Prolog about term ma
 - Visitor
 - Builder
 - Factory Method
+
+## Result
+
+![](/demo/prolog_shell.gif)
